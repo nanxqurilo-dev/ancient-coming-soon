@@ -48,6 +48,15 @@ const staggerContainer = {
   whileInView: { transition: { staggerChildren: 0.15 } },
 };
 
+const poojaCategories = [
+  "Dhoop & Agarbatti",
+  "Havan Samagri",
+  "Kapoor & Ghee Diya",
+  "Kumkum & Chandan",
+  "Rudraksha & Mala",
+  "Kalawa & Pooja Cloth",
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen relative bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
@@ -274,17 +283,30 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           <div className="w-50 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
         
-        <p className="mt-6 text-sm md:text-lg tracking-[0.35em] text-gray-200 uppercase">
-  Sacred Traditions • Pure Ingredients • Divine Fragrance
+        <p className="mt-6 text-xs md:text-sm tracking-[0.28em] text-gold-light uppercase">
+  Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Pure Fragrance <span className="mx-2 text-gold/60">&bull;</span> Sacred Rituals
 </p>
 
-<p className="mt-8 max-w-3xl mx-auto text-gray-300 leading-8 text-lg font-light">
-  Experience the timeless essence of Indian spirituality through our handcrafted
-  pooja samagri. From premium dhoop, agarbatti and havan essentials to
-  authentic devotional products, every creation is prepared using natural
-  ingredients and inspired by centuries of sacred traditions. Designed to bring
-  peace, positivity and divine fragrance into every home and temple.
-</p>
+<div className="mt-8 max-w-4xl mx-auto rounded-2xl border border-white/10 bg-black/25 px-5 py-6 md:px-10 md:py-8 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.35)]">
+  <p className="text-gray-200 leading-8 text-base md:text-lg font-light">
+    Bring home thoughtfully prepared pooja samagri for daily worship, festivals
+    and sacred ceremonies. Our collection includes premium dhoop, agarbatti,
+    havan essentials, kapoor, diya items, kumkum, chandan, kalawa, rudraksha
+    mala and devotional accessories, chosen to keep every ritual pure, peaceful
+    and full of divine fragrance.
+  </p>
+
+  <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+    {poojaCategories.map((item) => (
+      <div
+        key={item}
+        className="rounded-full border border-gold/25 bg-white/5 px-4 py-2 text-[11px] md:text-xs tracking-[0.12em] text-gold-light uppercase shadow-[inset_0_0_18px_rgba(212,166,90,.08)]"
+      >
+        {item}
+      </div>
+    ))}
+  </div>
+</div>
 
 
 
