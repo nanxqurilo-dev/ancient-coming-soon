@@ -219,35 +219,44 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
     <div
       aria-hidden="true"
-      className="absolute left-1/2 top-1/2 h-[190px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(242,197,111,.34)_0%,_rgba(199,154,75,.12)_42%,_transparent_72%)] blur-xl pointer-events-none"
+      className="absolute left-1/2 top-1/2 h-[245px] w-[245px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(242,197,111,.28)_0%,_rgba(199,154,75,.12)_45%,_transparent_72%)] blur-2xl pointer-events-none"
     />
 
     <motion.div
       aria-hidden="true"
       animate={{ rotate: 360 }}
       transition={{
-        duration: 18,
+        duration: 30,
         repeat: Infinity,
         ease: "linear",
       }}
-      className="absolute left-1/2 top-1/2 h-[210px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F2C56F]/25 shadow-[0_0_35px_rgba(242,197,111,.18)] pointer-events-none"
+      className="absolute left-1/2 top-1/2 h-[245px] w-[245px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F2C56F]/28 shadow-[0_0_34px_rgba(242,197,111,.16)] pointer-events-none"
     />
 
     <motion.div
       aria-hidden="true"
       animate={{ rotate: -360 }}
       transition={{
-        duration: 28,
+        duration: 42,
         repeat: Infinity,
         ease: "linear",
       }}
-      className="absolute left-1/2 top-1/2 h-[155px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#D4A65A]/25 pointer-events-none"
+      className="absolute left-1/2 top-1/2 h-[190px] w-[190px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#D4A65A]/24 pointer-events-none"
     >
-      <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-[#F2C56F] shadow-[0_0_14px_rgba(242,197,111,.85)]" />
-      <span className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#D4A65A] shadow-[0_0_12px_rgba(212,166,90,.75)]" />
-      <span className="absolute left-4 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#D4A65A] shadow-[0_0_12px_rgba(212,166,90,.75)]" />
-      <span className="absolute right-4 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#D4A65A] shadow-[0_0_12px_rgba(212,166,90,.75)]" />
+      <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-[#F2C56F] shadow-[0_0_14px_rgba(242,197,111,.8)]" />
+      <span className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#D4A65A] shadow-[0_0_12px_rgba(212,166,90,.7)]" />
     </motion.div>
+
+    <motion.div
+      aria-hidden="true"
+      animate={{ opacity: [0.28, 0.58, 0.28], scale: [0.96, 1.03, 0.96] }}
+      transition={{
+        duration: 5.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="absolute left-1/2 top-1/2 h-[145px] w-[145px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#FFE3A0]/14 bg-[#D4A65A]/5 shadow-[0_0_36px_rgba(242,197,111,.18)] pointer-events-none"
+    />
 
 
 
