@@ -452,23 +452,39 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
           {/* Background Image */}
-          <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20 mix-blend-overlay pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-64 h-64 pointer-events-none">
             <Image
               src="/images/dhoop-cone-luxury.png"
               alt="Premium dhoop cone detail"
               fill
               sizes="256px"
-              className="object-cover"
+              className="object-cover opacity-20 mix-blend-overlay"
             />
+            <div className="smoke-stack">
+              <span className="smoke-thread smoke-thread-one" />
+              <span className="smoke-thread smoke-thread-two" />
+              <span className="smoke-thread smoke-thread-three" />
+              <span className="smoke-thread smoke-thread-four" />
+              <span className="smoke-thread smoke-thread-five" />
+              <span className="smoke-haze" />
+            </div>
           </div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 opacity-20 mix-blend-overlay pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-64 h-64 pointer-events-none">
             <Image
               src="/images/dhoop-cone-luxury.png"
               alt="Premium dhoop cone detail"
               fill
               sizes="256px"
-              className="scale-x-[-1] object-cover"
+              className="scale-x-[-1] object-cover opacity-20 mix-blend-overlay"
             />
+            <div className="smoke-stack smoke-stack-right">
+              <span className="smoke-thread smoke-thread-one" />
+              <span className="smoke-thread smoke-thread-two" />
+              <span className="smoke-thread smoke-thread-three" />
+              <span className="smoke-thread smoke-thread-four" />
+              <span className="smoke-thread smoke-thread-five" />
+              <span className="smoke-haze" />
+            </div>
           </div>
 
           <div className="flex flex-col items-center text-center relative z-10 max-w-xl mx-auto">
@@ -497,6 +513,196 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               <span>We respect your privacy. No spam, ever.</span>
             </div>
           </div>
+
+          <style jsx>{`
+            .smoke-stack {
+              position: absolute;
+  left: 50%;
+  bottom: 125px;
+
+  width: 70px;
+  height: 220px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+              width: 56px;
+              height: 178px;
+              mix-blend-mode: screen;
+              opacity: 0.95;
+            }
+
+           .smoke-stack-right{
+    left:50%;
+    right:auto;
+    transform:translateX(-50%) scaleX(-1);
+}
+
+            .smoke-stack::before {
+              content: "";
+              position: absolute;
+              left: 50%;
+             content:"";
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:6px;
+    height:6px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:rgba(255,220,180,.9);
+
+    filter:blur(3px);
+
+    box-shadow:
+        0 0 8px rgba(255,180,80,.8),
+        0 0 18px rgba(255,140,0,.5);
+
+              border-radius: 9999px;
+              background: rgba(255, 235, 201, 0.42);
+              filter: blur(5px);
+              transform: translateX(-50%);
+            }
+
+            .smoke-thread,
+            .smoke-haze {
+              position: absolute;
+              left: 50%;
+              bottom: 0;
+              border-radius: 9999px;
+              opacity: 0;
+              transform-origin: bottom center;
+            }
+
+            .smoke-thread {
+              width: 7px;
+              height: 104px;
+              background:
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.72), transparent 24%),
+                linear-gradient(
+                  to top,
+                  rgba(255, 244, 222, 0),
+                  rgba(255, 244, 222, 0.62) 20%,
+                  rgba(255, 255, 255, 0.22) 62%,
+                  rgba(255, 255, 255, 0)
+                );
+              filter: blur(6px);
+              animation: smokeThread 8.4s ease-in-out infinite;
+            }
+
+            .smoke-thread-one {
+              margin-left: -4px;
+              animation-delay: -0.9s;
+            }
+
+            .smoke-thread-two {
+              width: 10px;
+              height: 126px;
+              margin-left: 2px;
+              filter: blur(7px);
+              animation-delay: -2.8s;
+              animation-duration: 9.8s;
+            }
+
+            .smoke-thread-three {
+              width: 6px;
+              height: 92px;
+              margin-left: -9px;
+              filter: blur(5px);
+              animation-delay: -4.5s;
+              animation-duration: 7.4s;
+            }
+
+            .smoke-thread-four {
+              width: 12px;
+              height: 138px;
+              margin-left: 8px;
+              filter: blur(9px);
+              animation-delay: -6.1s;
+              animation-duration: 11s;
+            }
+
+            .smoke-thread-five {
+              width: 5px;
+              height: 112px;
+              margin-left: -1px;
+              filter: blur(5px);
+              animation-delay: -7.4s;
+              animation-duration: 9.4s;
+            }
+
+            .smoke-haze {
+bottom:20px;            
+ width:26px;
+height:26px;
+              margin-left: -27px;
+              border-radius: 50%;
+              background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
+              filter: blur(16px);
+              animation: smokeHaze 9s ease-in-out infinite;
+            }
+
+            @keyframes smokeThread{
+
+0%{
+opacity:0;
+transform:
+translateX(0)
+translateY(0)
+scale(.25);
+}
+
+15%{
+opacity:.85;
+transform:
+translateX(2px)
+translateY(-25px)
+scale(.45);
+}
+
+40%{
+opacity:.6;
+transform:
+translateX(-4px)
+translateY(-70px)
+scale(.8);
+}
+
+70%{
+opacity:.3;
+transform:
+translateX(5px)
+translateY(-135px)
+scale(1.2);
+}
+
+100%{
+opacity:0;
+transform:
+translateX(-2px)
+translateY(-205px)
+scale(1.8);
+}
+
+}
+
+            @keyframes smokeHaze {
+              0%,
+              100% {
+                opacity: 0.08;
+                transform: translate3d(0, 12px, 0) scale(0.9);
+              }
+              45% {
+                opacity: 0.22;
+                transform: translate3d(8px, -34px, 0) scale(1.16);
+              }
+            }
+          `}</style>
 
 
 
