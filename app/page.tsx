@@ -290,16 +290,15 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
         
         <p className="mt-5 text-[11px] md:text-xs tracking-[0.32em] text-gold-light uppercase drop-shadow-[0_0_18px_rgba(242,197,111,.24)]">
-  Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Pure Fragrance <span className="mx-2 text-gold/60">&bull;</span> Sacred Rituals
+  Launching Soon <span className="mx-2 text-gold/60">&bull;</span> Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Early Access
 </p>
 
 <div className="mt-7 max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-b from-black/35 to-black/15 px-5 py-6 md:px-8 md:py-7 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.38)]">
-  <p className="mx-auto max-w-4xl text-gray-100 leading-8 text-[15px] md:text-lg font-light tracking-[0.01em]">
-    Bring home thoughtfully prepared pooja samagri for daily worship, festivals
-    and sacred ceremonies. Our collection includes premium dhoop, agarbatti,
-    havan essentials, kapoor, diya items, kumkum, chandan, kalawa, rudraksha
-    mala and devotional accessories, chosen to keep every ritual pure, peaceful
-    and full of divine fragrance.
+  <p className="mx-auto max-w-4xl text-gray-300 leading-8 text-[15px] md:text-lg font-light tracking-[0.01em]">
+    Our online pooja samagri store is getting ready to open soon. We are
+    curating premium dhoop, agarbatti, havan essentials, kapoor, diya items,
+    kumkum, chandan, kalawa, rudraksha mala and devotional accessories for
+    daily worship, festive rituals and sacred ceremonies.
   </p>
 
   <div className="mt-6 grid grid-cols-2 lg:grid-cols-6 gap-3">
@@ -343,7 +342,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     shadow-[0_0_35px_rgba(212,166,90,.35)]
   "
 >
-  Explore Divine Collection
+  Notify Me For Launch
 </motion.button>
 
 
@@ -411,8 +410,8 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
                 </h3>
                 <Timer />
                 <p className="mt-6 text-xs leading-6 text-gray-400">
-                  Our complete pooja samagri store is being prepared with care.
-                  Stay connected for early access and launch offers.
+                  The complete Ancient India pooja samagri store is almost
+                  ready. Join the waitlist for first access and launch offers.
                 </p>
               </div>
             </div>
@@ -474,18 +473,18 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
           <div className="flex flex-col items-center text-center relative z-10 max-w-xl mx-auto">
             <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mb-4"></div>
-            <p className="text-[10px] tracking-[0.2em] text-gold uppercase">Be The First To Know</p>
+            <p className="text-[15px] tracking-[0.2em] text-gold uppercase">Coming Soon</p>
             <h2 className="text-4xl md:text-5xl font-serif text-white mt-2 mb-2 drop-shadow-lg">
-              Join Our <span className="text-gold">Sacred</span> Circle
+              Get Early <span className="text-gold">Launch</span> Access
             </h2>
-            <p className="text-sm text-gray-300 mb-8 font-light">Subscribe for exclusive updates, early access and special offers.</p>
+            <p className="text-sm text-gray-300 mb-8 font-light">Subscribe to know when our pooja samagri collection goes live.</p>
 
             <form className="w-full flex flex-col sm:flex-row gap-4">
               <div className="flex-1 relative">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="w-full bg-black/40 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
+                  className="w-full bg-black/10 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
                 />
               </div>
               <button className="px-8 py-4 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold tracking-widest uppercase rounded-lg hover:shadow-[0_0_30px_rgba(193,155,94,0.4)] transition-all transform hover:scale-105">
