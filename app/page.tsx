@@ -359,11 +359,11 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
         <motion.div
           {...fadeInUp}
-          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/45 via-[#1b1008]/45 to-black/25 p-5 shadow-[0_28px_90px_rgba(0,0,0,.5)] backdrop-blur-xl md:p-8"
+          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/20 via-[#1b1008]/18 to-black/10 p-5 shadow-[0_24px_80px_rgba(0,0,0,.34)] backdrop-blur-[2px] md:p-8"
         >
           <div className="absolute inset-x-10 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-          <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
-          <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
+          <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gold/5 blur-3xl" />
+          <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-amber-500/5 blur-3xl" />
 
           <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
             <div className="text-center lg:text-left">
@@ -386,7 +386,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
                 {launchHighlights.map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-white/10 bg-white/[.04] px-4 py-3 text-xs leading-5 text-gray-200"
+                    className="rounded-2xl border border-white/10 bg-black/15 px-4 py-3 text-xs leading-5 text-gray-200 backdrop-blur-[1px]"
                   >
                     <span className="mb-2 block h-1.5 w-1.5 rounded-full bg-[#F2C56F] shadow-[0_0_12px_rgba(242,197,111,.8)]" />
                     {item}
@@ -394,14 +394,14 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
                 ))}
               </div>
 
-              <button className="mt-7 rounded-full border border-gold/40 bg-black/25 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-light transition-all hover:bg-gold hover:text-black hover:shadow-[0_0_28px_rgba(212,166,90,.32)]">
+              <button className="mt-7 rounded-full border border-gold/45 bg-black/15 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-light backdrop-blur-[1px] transition-all hover:bg-gold hover:text-black hover:shadow-[0_0_28px_rgba(212,166,90,.32)]">
                 Discover Our Promise &rarr;
               </button>
             </div>
 
             <div className="relative mx-auto w-full max-w-[430px]">
-              <div className="absolute inset-6 rounded-full bg-gold/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl border border-gold/20 bg-black/55 p-7 text-center shadow-[inset_0_0_55px_rgba(212,166,90,.06),0_22px_70px_rgba(0,0,0,.45)] md:p-9">
+              <div className="absolute inset-6 rounded-full bg-gold/6 blur-3xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-gold/25 bg-black/22 p-7 text-center shadow-[inset_0_0_45px_rgba(212,166,90,.05),0_18px_55px_rgba(0,0,0,.32)] backdrop-blur-[2px] md:p-9">
                 <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold shadow-[0_0_26px_rgba(193,155,94,.16)]">
                   <FaGem className="text-base" />
