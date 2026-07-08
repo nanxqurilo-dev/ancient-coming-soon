@@ -52,33 +52,70 @@ const staggerContainer = {
 export default function Home() {
   return (
     <main className="min-h-screen relative bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
-      
+
       {/* ================= BACKGROUND & ATMOSPHERE ================= */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-         {/* 1. Extreme warm golden/amber spotlight in the center */}
+        {/* 1. Extreme warm golden/amber spotlight in the center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/40 via-amber-900/10 to-transparent blur-[100px]"></div>
-        
+
         {/* 2. Slightly lighter warm dark-brown base tone */}
         <div className="absolute inset-0 bg-[#120b07]"></div>
 
-        {/* 3. Temple background - Made visible and warm */}
-        <div className="absolute inset-0 opacity-50">
+        {/* 3. Temple background image - Made visible and warm */}
+        {/* <div className="absolute inset-0 opacity-50">
            <Image 
              src="/images/temple.png" 
              alt="Temple Placeholder" 
              fill 
-             className="object-cover object-center" 
+             className="object-contain object-center" 
            />
-           {/* NOTE: Replace with '/images/temple.jpg' later */}
         </div>
+ */}
+
+
+
+
+
+        <div className="absolute inset-0 opacity-50">
+          <Image
+            src="/images/video.gif"
+            alt="Temple Placeholder"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
+
+
+
+
+
+
+        {/* <div className="absolute inset-0 overflow-hidden opacity-50">
+  <Image
+    src="/images/temple2.webp"
+    alt="Temple"
+    fill
+    priority
+    className="
+      object-cover
+      object-center
+      md:object-[center_top]
+      lg:object-center
+    "
+  />
+</div> */}
+
+
+
 
         {/* 4. Subtle vignette to highlight the center (edges darker) */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#120b07]/80 via-transparent to-[#120b07]/95 pointer-events-none"></div>
-        
+
         {/* 5. Floating dust/ember particles (Decorative glow) */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse delay-700"></div>
-         </div>
+      </div>
 
       {/* ================= TOP NAVIGATION (GLASSMORPHISM) ================= */}
       <header className="relative z-20 flex justify-between items-center p-4 md:px-12 text-xs tracking-widest bg-black/30 backdrop-blur-md border-b border-white/5 shadow-lg">
@@ -101,7 +138,7 @@ export default function Home() {
 
       {/* ================= HERO SECTION ================= */}
       <section className="relative z-10 container mx-auto px-4 pt-16 pb-24">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -117,7 +154,7 @@ export default function Home() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mt-16 items-center relative">
-          
+
           {/* LEFT: Text & CTA */}
           <motion.div {...fadeInUp} className="order-2 lg:order-1 space-y-6 text-center lg:text-left">
             <div className="w-8 h-[1px] bg-gold mx-auto lg:mx-0 opacity-70"></div>
@@ -135,13 +172,13 @@ export default function Home() {
           </motion.div>
 
           {/* CENTER: Galaxy Product Animation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
             className="order-1 lg:order-2 relative flex justify-center items-center min-h-[360px] md:min-h-[620px] w-full"
           >
-            <DhoopAnimation />
+            {/* <DhoopAnimation /> */}
           </motion.div>
 
           {/* RIGHT: Timer Box (GLASSMORPHISM) */}
@@ -149,7 +186,7 @@ export default function Home() {
             <div className="bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.8)] p-8 md:p-10 rounded-2xl w-full max-w-[340px] text-center relative overflow-hidden">
               {/* Top highlight line */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
-              
+
               <div className="w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center text-gold mx-auto mb-4 shadow-[0_0_15px_rgba(193,155,94,0.1)]">
                 <FaGem className="text-base" />
               </div>
@@ -166,16 +203,16 @@ export default function Home() {
 
       {/* ================= FEATURE HIGHLIGHTS (GLASS CARDS) ================= */}
       <section className="relative z-10 container mx-auto px-4 py-16 border-t border-white/5">
-        <motion.div 
-          variants={staggerContainer} 
-          initial="initial" 
-          whileInView="whileInView" 
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
           className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {features.map((feat, i) => (
-            <motion.div 
-              key={i} 
-              variants={fadeInUp} 
+            <motion.div
+              key={i}
+              variants={fadeInUp}
               className="flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm border border-white/5 rounded-xl hover:border-gold/30 hover:bg-white/10 transition-all duration-300 shadow-xl shadow-black/20 group"
             >
               <div className="w-14 h-14 border border-gold/20 rounded-full flex items-center justify-center text-gold mb-4 text-xl group-hover:shadow-[0_0_20px_rgba(193,155,94,0.2)] transition-all">
@@ -191,56 +228,77 @@ export default function Home() {
       {/* ================= NEWSLETTER SECTION (PREMIUM GLASS) ================= */}
       <section className="relative z-10 container mx-auto px-4 pb-24">
         <motion.div {...fadeInUp} className="relative bg-gradient-to-br from-black/40 to-black/10 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/40 rounded-2xl p-8 md:p-16 overflow-hidden">
-          
+
           {/* Background decorative glow for newsletter */}
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
-          
+
           {/* Background Image */}
           <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20 mix-blend-overlay pointer-events-none">
-             <Image
-               src="/images/dhoop-cone-luxury.png"
-               alt="Premium dhoop cone detail"
-               fill
-               sizes="256px"
-               className="object-cover"
-             />
+            <Image
+              src="/images/dhoop-cone-luxury.png"
+              alt="Premium dhoop cone detail"
+              fill
+              sizes="256px"
+              className="object-cover"
+            />
           </div>
 
           <div className="flex flex-col items-center text-center relative z-10 max-w-xl mx-auto">
-             <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mb-4"></div>
-             <p className="text-[10px] tracking-[0.2em] text-gold uppercase">Be The First To Know</p>
-             <h2 className="text-4xl md:text-5xl font-serif text-white mt-2 mb-2 drop-shadow-lg">
-               Join Our <span className="text-gold">Sacred</span> Circle
-             </h2>
-             <p className="text-sm text-gray-300 mb-8 font-light">Subscribe for exclusive updates, early access and special offers.</p>
-             
-             <form className="w-full flex flex-col sm:flex-row gap-4">
-               <div className="flex-1 relative">
-                 <input 
-                   type="email" 
-                   placeholder="Enter your email address" 
-                   className="w-full bg-black/40 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
-                 />
-               </div>
-               <button className="px-8 py-4 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold tracking-widest uppercase rounded-lg hover:shadow-[0_0_30px_rgba(193,155,94,0.4)] transition-all transform hover:scale-105">
-                 Notify Me
-               </button>
-             </form>
-             
-             <div className="flex items-center gap-2 mt-6 text-[10px] text-gray-400">
-               <FaLock className="text-xs text-gold/50" />
-               <span>We respect your privacy. No spam, ever.</span>
-             </div>
+            <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mb-4"></div>
+            <p className="text-[10px] tracking-[0.2em] text-gold uppercase">Be The First To Know</p>
+            <h2 className="text-4xl md:text-5xl font-serif text-white mt-2 mb-2 drop-shadow-lg">
+              Join Our <span className="text-gold">Sacred</span> Circle
+            </h2>
+            <p className="text-sm text-gray-300 mb-8 font-light">Subscribe for exclusive updates, early access and special offers.</p>
+
+            <form className="w-full flex flex-col sm:flex-row gap-4">
+              <div className="flex-1 relative">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="w-full bg-black/40 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
+                />
+              </div>
+              <button className="px-8 py-4 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold tracking-widest uppercase rounded-lg hover:shadow-[0_0_30px_rgba(193,155,94,0.4)] transition-all transform hover:scale-105">
+                Notify Me
+              </button>
+            </form>
+
+            <div className="flex items-center gap-2 mt-6 text-[10px] text-gray-400">
+              <FaLock className="text-xs text-gold/50" />
+              <span>We respect your privacy. No spam, ever.</span>
+            </div>
           </div>
         </motion.div>
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="relative z-10 flex flex-col md:flex-row justify-between items-center px-8 py-6 text-[10px] text-gray-500 border-t border-white/5 gap-4">
+      {/* <footer className="relative z-10 flex flex-col md:flex-row justify-between items-center px-8 py-6 text-[10px] text-gray-500 border-t border-white/5 gap-4"> */}
+
+      <footer
+        className="
+    relative
+    z-20
+    flex
+    flex-col
+    md:flex-row
+    justify-between
+    items-center
+    px-8
+    py-8
+    gap-4
+
+    bg-black/5
+    backdrop-blur-sm
+
+    border-t border-white/10
+  "
+      >
+
         <div className="flex items-center gap-2">
-           <GiLotus className="text-gold/70 text-lg" />
-           <span className="text-gold/40 text-[8px]">AI</span>
+          <GiLotus className="text-gold/70 text-lg" />
+          <span className="text-gold/40 text-[8px]">AI</span>
         </div>
         <p className="tracking-wider">&copy; 2024 Ancient India. All Rights Reserved.</p>
         <div className="flex gap-6 tracking-wider">
