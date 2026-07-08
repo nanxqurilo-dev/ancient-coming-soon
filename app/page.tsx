@@ -462,6 +462,15 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               className="object-cover"
             />
           </div>
+          <div className="absolute bottom-0 right-0 w-64 h-64 opacity-20 mix-blend-overlay pointer-events-none">
+            <Image
+              src="/images/dhoop-cone-luxury.png"
+              alt="Premium dhoop cone detail"
+              fill
+              sizes="256px"
+              className="scale-x-[-1] object-cover"
+            />
+          </div>
 
           <div className="flex flex-col items-center text-center relative z-10 max-w-xl mx-auto">
             <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mb-4"></div>
@@ -523,7 +532,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
         <div className="flex items-center gap-2">
           <GiLotus className="text-gold/70 text-lg" />
-          <span className="text-gold/40 text-[8px]">AI</span>
+          {/* <span className="text-gold/40 text-[8px]">AI</span> */}
         </div>
         <p className="tracking-wider">&copy; 2024 Ancient India. All Rights Reserved.</p>
         <div className="flex gap-6 tracking-wider">
