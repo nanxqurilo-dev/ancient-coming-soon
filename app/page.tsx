@@ -137,20 +137,157 @@ export default function Home() {
       </div>
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative z-10 container mx-auto px-4 pt-16 pb-24">
+      <section className="relative z-10 container mx-auto px-4 pt-6 pb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center"
-        >
-          <div className="flex justify-center mb-2 drop-shadow-[0_0_10px_rgba(193,155,94,0.5)]">
+className="text-center relative flex flex-col items-center"        >
+          {/* <div className="flex justify-center mb-2 drop-shadow-[0_0_10px_rgba(193,155,94,0.5)]">
             <GiLotus className="text-4xl text-gold" />
-          </div>
-          <p className="text-lg tracking-[0.3em] text-gold font-display uppercase drop-shadow-md">Ancient</p>
-          <h1 className="text-7xl md:text-9xl font-serif text-gold tracking-widest font-normal drop-shadow-2xl">INDIA</h1>
-          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
-          <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p>
+          </div> */}
+
+
+{/* Big Glow */}
+<div className="absolute left-1/2 top-14 -translate-x-1/2 w-[800px] h-[650px] rounded-full bg-amber-400/10 blur-[180px] animate-pulse pointer-events-none -z-10" />
+
+{/* Small Bright Glow */}
+<div className="absolute left-1/2 top-28 -translate-x-1/2 w-[220px] h-[220px] rounded-full bg-yellow-300/20 blur-[80px] animate-pulse pointer-events-none -z-10" />
+
+
+
+<motion.div
+  initial={{ opacity: 0, y: -20, scale: .8 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ duration: 1 }}
+  // className="flex justify-center mb-8"
+className="flex justify-center -mb-10">
+  {/* <motion.div
+    animate={{
+      y: [0, -8, 0],
+      rotate: [0, 2, 0, -2, 0],
+      filter: [
+        "drop-shadow(0 0 8px rgba(193,155,94,.3))",
+        "drop-shadow(0 0 24px rgba(193,155,94,.8))",
+        "drop-shadow(0 0 8px rgba(193,155,94,.3))",
+      ],
+    }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    // className="relative w-44 h-44 md:w-56 md:h-56"
+
+className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
+
+
+
+
+<motion.div
+  animate={{
+    y: [0, -6, 0],
+    scale: [1, 1.03, 1],
+    filter: [
+      "drop-shadow(0 0 8px rgba(193,155,94,.3))",
+      "drop-shadow(0 0 24px rgba(193,155,94,.8))",
+      "drop-shadow(0 0 8px rgba(193,155,94,.3))",
+    ],
+  }}
+  transition={{
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="relative w-[420px] h-[280px] md:w-[520px] md:h-[260px]"
+>
+
+
+
+
+
+      <Image
+      src="/images/logo.png"   // <-- apna uploaded logo yaha save kar do
+      alt="Ancient India"
+      fill
+      priority
+      className="object-contain"
+    />
+  </motion.div>
+</motion.div>
+
+
+
+
+
+
+
+          {/* <p className="text-lg tracking-[0.3em] text-gold font-display uppercase drop-shadow-md"> */}
+          {/* <p className="mt-1 text-base md:text-lg tracking-[0.45em] text-gold">  
+            Ancient</p> */}
+<h1
+  className="
+    -mt-6
+    md:-mt-8
+    text-7xl
+    md:text-[11rem]
+    leading-none
+    font-serif
+    tracking-[0.08em]
+    text-[#C79A4B]
+    drop-shadow-[0_0_30px_rgba(199,154,75,.25)]
+  "
+>
+  INDIA
+</h1>
+          <div className="w-50 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
+        
+        <p className="mt-6 text-sm md:text-lg tracking-[0.35em] text-gray-200 uppercase">
+  Sacred Traditions • Pure Ingredients • Divine Fragrance
+</p>
+
+<p className="mt-8 max-w-3xl mx-auto text-gray-300 leading-8 text-lg font-light">
+  Experience the timeless essence of Indian spirituality through our handcrafted
+  pooja samagri. From premium dhoop, agarbatti and havan essentials to
+  authentic devotional products, every creation is prepared using natural
+  ingredients and inspired by centuries of sacred traditions. Designed to bring
+  peace, positivity and divine fragrance into every home and temple.
+</p>
+
+
+
+
+
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: .97 }}
+  className="
+    mt-10
+    px-10
+    py-4
+    rounded-full
+    bg-gradient-to-r
+    from-[#d4a65a]
+    to-[#f2c56f]
+    text-black
+    font-semibold
+    tracking-widest
+    shadow-[0_0_35px_rgba(212,166,90,.35)]
+  "
+>
+  Explore Divine Collection
+</motion.button>
+
+
+
+
+
+
+
+
+
+        
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mt-16 items-center relative">
