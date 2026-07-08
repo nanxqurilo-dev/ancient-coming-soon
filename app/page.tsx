@@ -57,6 +57,12 @@ const poojaCategories = [
   { title: "Kalawa & Pooja Cloth", sub: "Complete ceremony set", icon: <GiTiedScroll /> },
 ];
 
+const launchHighlights = [
+  "Handpicked pooja samagri",
+  "Natural fragrance blends",
+  "Packed for home and temple rituals",
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen relative bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
@@ -351,52 +357,67 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
         
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10 items-center relative">
+        <motion.div
+          {...fadeInUp}
+          className="relative mt-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/45 via-[#1b1008]/45 to-black/25 p-5 shadow-[0_28px_90px_rgba(0,0,0,.5)] backdrop-blur-xl md:p-8"
+        >
+          <div className="absolute inset-x-10 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+          <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+          <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
 
-          {/* LEFT: Text & CTA */}
-          <motion.div {...fadeInUp} className="order-2 lg:order-1 space-y-6 text-center lg:text-left">
-            <div className="w-8 h-[1px] bg-gold mx-auto lg:mx-0 opacity-70"></div>
-            <p className="text-xs tracking-[0.2em] text-gold uppercase font-bold drop-shadow-md">Premium Dhoop</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight drop-shadow-xl">
-              Crafted with <br />
-              <span className="text-gold">Devotion</span>
-            </h2>
-            <p className="text-gray-300 text-sm leading-relaxed font-light max-w-md mx-auto lg:mx-0 drop-shadow-md">
-              Experience the purity of ancient traditions with our handcrafted Dhoop and spiritual offerings. Made from the finest natural ingredients.
-            </p>
-            <button className="mt-4 px-8 py-3.5 bg-black/40 backdrop-blur-md border border-gold/50 text-gold text-xs tracking-widest uppercase transition-all hover:bg-gold hover:text-black hover:shadow-[0_0_20px_rgba(193,155,94,0.3)] rounded-sm">
-              Discover Our Promise &rarr;
-            </button>
-          </motion.div>
-
-          {/* CENTER: Galaxy Product Animation */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="hidden"
-          >
-            {/* <DhoopAnimation /> */}
-          </motion.div>
-
-          {/* RIGHT: Timer Box (GLASSMORPHISM) */}
-          <motion.div {...fadeInUp} className="order-3 lg:order-2 flex justify-center lg:justify-end">
-            <div className="bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.8)] p-8 md:p-10 rounded-2xl w-full max-w-[340px] text-center relative overflow-hidden">
-              {/* Top highlight line */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
-
-              <div className="w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center text-gold mx-auto mb-4 shadow-[0_0_15px_rgba(193,155,94,0.1)]">
-                <FaGem className="text-base" />
+          <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
+            <div className="text-center lg:text-left">
+              <div className="mx-auto mb-5 flex w-fit items-center gap-3 rounded-full border border-gold/20 bg-gold/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-light lg:mx-0">
+                <GiIncense className="text-lg" />
+                Premium Ritual Collection
               </div>
-              <h3 className="text-[10px] tracking-widest text-gray-300 uppercase mb-2">We Are Coming Soon</h3>
-              <Timer />
-              <p className="text-[10px] text-gray-400 mt-6 leading-relaxed font-light">
-                Something divine is on the way.<br /> Stay connected for early access.
-              </p>
-            </div>
-          </motion.div>
 
-        </div>
+              <h2 className="font-serif text-4xl leading-tight text-white drop-shadow-xl md:text-6xl">
+                Crafted for daily <span className="text-[#D4A65A]">devotion</span>
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-gray-300 md:text-base lg:mx-0">
+                From morning aarti to festive havan, every product is selected
+                to make worship simple, pure and beautifully fragrant. Explore
+                essentials made for homes, temples and gifting.
+              </p>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                {launchHighlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-white/[.04] px-4 py-3 text-xs leading-5 text-gray-200"
+                  >
+                    <span className="mb-2 block h-1.5 w-1.5 rounded-full bg-[#F2C56F] shadow-[0_0_12px_rgba(242,197,111,.8)]" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <button className="mt-7 rounded-full border border-gold/40 bg-black/25 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-light transition-all hover:bg-gold hover:text-black hover:shadow-[0_0_28px_rgba(212,166,90,.32)]">
+                Discover Our Promise &rarr;
+              </button>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-[430px]">
+              <div className="absolute inset-6 rounded-full bg-gold/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-3xl border border-gold/20 bg-black/55 p-7 text-center shadow-[inset_0_0_55px_rgba(212,166,90,.06),0_22px_70px_rgba(0,0,0,.45)] md:p-9">
+                <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold shadow-[0_0_26px_rgba(193,155,94,.16)]">
+                  <FaGem className="text-base" />
+                </div>
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-300">
+                  Website Launching Soon
+                </h3>
+                <Timer />
+                <p className="mt-6 text-xs leading-6 text-gray-400">
+                  Our complete pooja samagri store is being prepared with care.
+                  Stay connected for early access and launch offers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ================= FEATURE HIGHLIGHTS (GLASS CARDS) ================= */}
@@ -468,6 +489,12 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               <span>We respect your privacy. No spam, ever.</span>
             </div>
           </div>
+
+
+
+
+
+          
         </motion.div>
       </section>
 
