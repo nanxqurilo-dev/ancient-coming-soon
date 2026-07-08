@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLock, FaLeaf, FaHands, FaGem } from "react-icons/fa";
-import { GiLotus } from "react-icons/gi";
+import { GiCandleLight, GiFireBowl, GiIncense, GiLotus, GiPowderBag, GiPrayerBeads, GiTiedScroll } from "react-icons/gi";
 import Countdown, { type CountdownRenderProps } from "react-countdown";
 
 const LAUNCH_DATE_MS = new Date("2026-08-05T00:00:00+05:30").getTime();
@@ -49,12 +49,12 @@ const staggerContainer = {
 };
 
 const poojaCategories = [
-  "Dhoop & Agarbatti",
-  "Havan Samagri",
-  "Kapoor & Ghee Diya",
-  "Kumkum & Chandan",
-  "Rudraksha & Mala",
-  "Kalawa & Pooja Cloth",
+  { title: "Dhoop & Agarbatti", sub: "Temple-grade fragrance", icon: <GiIncense /> },
+  { title: "Havan Samagri", sub: "Sacred herbal blends", icon: <GiFireBowl /> },
+  { title: "Kapoor & Ghee Diya", sub: "Pure ritual flame", icon: <GiCandleLight /> },
+  { title: "Kumkum & Chandan", sub: "Tilak essentials", icon: <GiPowderBag /> },
+  { title: "Rudraksha & Mala", sub: "For jap and devotion", icon: <GiPrayerBeads /> },
+  { title: "Kalawa & Pooja Cloth", sub: "Complete ceremony set", icon: <GiTiedScroll /> },
 ];
 
 export default function Home() {
@@ -283,12 +283,12 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           <div className="w-50 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
         
-        <p className="mt-6 text-xs md:text-sm tracking-[0.28em] text-gold-light uppercase">
+        <p className="mt-5 text-[11px] md:text-xs tracking-[0.32em] text-gold-light uppercase drop-shadow-[0_0_18px_rgba(242,197,111,.24)]">
   Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Pure Fragrance <span className="mx-2 text-gold/60">&bull;</span> Sacred Rituals
 </p>
 
-<div className="mt-8 max-w-4xl mx-auto rounded-2xl border border-white/10 bg-black/25 px-5 py-6 md:px-10 md:py-8 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.35)]">
-  <p className="text-gray-200 leading-8 text-base md:text-lg font-light">
+<div className="mt-7 max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-b from-black/35 to-black/15 px-5 py-6 md:px-8 md:py-7 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.38)]">
+  <p className="mx-auto max-w-4xl text-gray-100 leading-8 text-[15px] md:text-lg font-light tracking-[0.01em]">
     Bring home thoughtfully prepared pooja samagri for daily worship, festivals
     and sacred ceremonies. Our collection includes premium dhoop, agarbatti,
     havan essentials, kapoor, diya items, kumkum, chandan, kalawa, rudraksha
@@ -296,13 +296,21 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     and full of divine fragrance.
   </p>
 
-  <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+  <div className="mt-6 grid grid-cols-2 lg:grid-cols-6 gap-3">
     {poojaCategories.map((item) => (
       <div
-        key={item}
-        className="rounded-full border border-gold/25 bg-white/5 px-4 py-2 text-[11px] md:text-xs tracking-[0.12em] text-gold-light uppercase shadow-[inset_0_0_18px_rgba(212,166,90,.08)]"
+        key={item.title}
+        className="group rounded-xl border border-gold/20 bg-[#1d1308]/55 px-3 py-4 text-center shadow-[inset_0_0_22px_rgba(212,166,90,.08),0_10px_28px_rgba(0,0,0,.18)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 hover:bg-[#2a1a0b]/70"
       >
-        {item}
+        <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 bg-gold/10 text-2xl text-[#F2C56F] shadow-[0_0_18px_rgba(242,197,111,.14)] transition-transform duration-300 group-hover:scale-110">
+          {item.icon}
+        </div>
+        <h3 className="font-serif text-[12px] leading-snug text-gold-light">
+          {item.title}
+        </h3>
+        <p className="mt-1 text-[10px] leading-4 text-gray-400">
+          {item.sub}
+        </p>
       </div>
     ))}
   </div>
@@ -316,7 +324,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: .97 }}
   className="
-    mt-10
+    mt-8
     px-10
     py-4
     rounded-full
@@ -343,7 +351,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
         
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mt-16 items-center relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10 items-center relative">
 
           {/* LEFT: Text & CTA */}
           <motion.div {...fadeInUp} className="order-2 lg:order-1 space-y-6 text-center lg:text-left">
@@ -366,13 +374,13 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 relative flex justify-center items-center min-h-[360px] md:min-h-[620px] w-full"
+            className="hidden"
           >
             {/* <DhoopAnimation /> */}
           </motion.div>
 
           {/* RIGHT: Timer Box (GLASSMORPHISM) */}
-          <motion.div {...fadeInUp} className="order-3 lg:order-3 flex justify-center lg:justify-end">
+          <motion.div {...fadeInUp} className="order-3 lg:order-2 flex justify-center lg:justify-end">
             <div className="bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.8)] p-8 md:p-10 rounded-2xl w-full max-w-[340px] text-center relative overflow-hidden">
               {/* Top highlight line */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
