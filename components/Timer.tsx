@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
-import Countdown from "react-countdown";
+import Countdown, { type CountdownRenderProps } from "react-countdown";
+
+const LAUNCH_DATE_MS = new Date("2026-08-05T00:00:00+05:30").getTime();
 
 const Timer = () => {
-  const renderer = ({ days, hours, minutes, seconds }: any) => {
+  const renderer = ({ days, hours, minutes, seconds }: CountdownRenderProps) => {
     const items = [
       { label: "DAYS", value: days },
       { label: "HOURS", value: hours },
@@ -22,10 +24,7 @@ const Timer = () => {
     );
   };
 
-  // Set target date to 28 days from now
-  const targetDate = Date.now() + 28 * 24 * 60 * 60 * 1000;
-
-  return <Countdown date={targetDate} renderer={renderer} />;
+  return <Countdown date={LAUNCH_DATE_MS} renderer={renderer} />;
 };
 
 export default Timer;

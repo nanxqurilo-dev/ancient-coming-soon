@@ -3,11 +3,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLock, FaLeaf, FaHands, FaGem } from "react-icons/fa";
 import { GiLotus } from "react-icons/gi";
-import Countdown from "react-countdown";
+import Countdown, { type CountdownRenderProps } from "react-countdown";
+import DhoopAnimation from "@/components/DhoopAnimation";
+
+const LAUNCH_DATE_MS = new Date("2026-08-05T00:00:00+05:30").getTime();
 
 // Timer Component - Embedded directly for complete code
 const Timer = () => {
-  const renderer = ({ days, hours, minutes, seconds }: any) => {
+  const renderer = ({ days, hours, minutes, seconds }: CountdownRenderProps) => {
     const items = [
       { label: "DAYS", value: days },
       { label: "HOURS", value: hours },
@@ -30,9 +33,7 @@ const Timer = () => {
     );
   };
 
-  // Set target date to 28 days from now
-  const targetDate = Date.now() + 28 * 24 * 60 * 60 * 1000;
-  return <Countdown date={targetDate} renderer={renderer} />;
+  return <Countdown date={LAUNCH_DATE_MS} renderer={renderer} />;
 };
 
 // Animation variants
@@ -40,7 +41,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.8, ease: "easeOut" },
+  transition: { duration: 0.8, ease: "easeOut" as const },
 };
 
 const staggerContainer = {
@@ -50,11 +51,11 @@ const staggerContainer = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative bg-[#0a0604] text-white overflow-x-hidden selection:bg-gold selection:text-black">
+    <main className="min-h-screen relative bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
       
       {/* ================= BACKGROUND & ATMOSPHERE ================= */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* 1. Extreme warm golden/amber spotlight in the center */}
+         {/* 1. Extreme warm golden/amber spotlight in the center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/40 via-amber-900/10 to-transparent blur-[100px]"></div>
         
         {/* 2. Slightly lighter warm dark-brown base tone */}
@@ -77,7 +78,7 @@ export default function Home() {
         {/* 5. Floating dust/ember particles (Decorative glow) */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse delay-700"></div>
-      </div>
+         </div>
 
       {/* ================= TOP NAVIGATION (GLASSMORPHISM) ================= */}
       <header className="relative z-20 flex justify-between items-center p-4 md:px-12 text-xs tracking-widest bg-black/30 backdrop-blur-md border-b border-white/5 shadow-lg">
@@ -133,30 +134,14 @@ export default function Home() {
             </button>
           </motion.div>
 
-          {/* CENTER: Dhoop Image */}
+          {/* CENTER: Galaxy Product Animation */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 relative flex justify-center items-center h-[400px] md:h-[650px] w-full"
+            className="order-1 lg:order-2 relative flex justify-center items-center min-h-[360px] md:min-h-[620px] w-full"
           >
-            {/* Glowing backdrops */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#C19B5E_0%,_transparent_60%)] opacity-40 scale-110 blur-md"></div>
-            <div className="absolute inset-0 border border-gold/20 rounded-full scale-75 animate-pulse"></div>
-            
-            {/* Dhoop Image Placeholder */}
-            <div className="relative w-[300px] md:w-[450px] h-[400px] md:h-[650px] z-10 drop-shadow-2xl">
-              <Image 
-                src="https://images.unsplash.com/photo-1601054814414-b1d43359a0ca?q=80&w=800&auto=format&fit=crop"
-                alt="Dhoop Cone"
-                fill
-                className="object-contain"
-              />
-              {/* NOTE: Replace with '/images/dhoop.png' later */}
-            </div>
-            
-            {/* Rising Smoke effect */}
-            <div className="absolute top-[0%] left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-t from-amber-500/20 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+            <DhoopAnimation />
           </motion.div>
 
           {/* RIGHT: Timer Box (GLASSMORPHISM) */}
@@ -211,10 +196,15 @@ export default function Home() {
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
           
-          {/* Background Image (Port Bowl) */}
+          {/* Background Image */}
           <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20 mix-blend-overlay pointer-events-none">
-             <Image src="https://images.unsplash.com/photo-1586351789812-2e47ee8e78e8?q=80&w=400" alt="Bowl" fill className="object-cover" />
-             {/* NOTE: Replace with '/images/port-bowl.png' later */}
+             <Image
+               src="/images/dhoop-cone-luxury.png"
+               alt="Premium dhoop cone detail"
+               fill
+               sizes="256px"
+               className="object-cover"
+             />
           </div>
 
           <div className="flex flex-col items-center text-center relative z-10 max-w-xl mx-auto">
