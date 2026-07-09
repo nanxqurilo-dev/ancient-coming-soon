@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaFacebookF, FaInstagram, FaYoutube, FaLock, FaLeaf, FaHands, FaGem } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaLock, FaLeaf, FaHands, FaGem, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { GiCandleLight, GiFireBowl, GiIncense, GiLotus, GiPowderBag, GiPrayerBeads, GiTiedScroll } from "react-icons/gi";
 import Countdown, { type CountdownRenderProps } from "react-countdown";
 
@@ -520,6 +520,26 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             <div className="flex items-center gap-2 mt-6 text-[10px] text-gray-400">
               <FaLock className="text-xs text-gold/50" />
               <span>We respect your privacy. No spam, ever.</span>
+            </div>
+
+            <div className="mt-7 flex w-full flex-col items-center justify-center gap-3 rounded-xl border border-gold/20 bg-black/15 px-5 py-4 text-xs text-gray-300 backdrop-blur-sm sm:flex-row sm:gap-6">
+              <span className="font-semibold uppercase tracking-[0.22em] text-gold-light">
+                Contact Us
+              </span>
+              <a
+                href="tel:+919289910711"
+                className="flex items-center gap-2 transition-colors hover:text-gold"
+              >
+                <FaPhoneAlt className="text-gold/70" />
+                +91 92899 10711
+              </a>
+              <a
+                href="mailto:care@ancientindia.co"
+                className="flex items-center gap-2 transition-colors hover:text-gold"
+              >
+                <FaEnvelope className="text-gold/70" />
+                care@ancientindia.co
+              </a>
             </div>
           </div>
 
