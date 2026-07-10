@@ -125,7 +125,7 @@ export default function Home() {
 
 
 
-        <div className="absolute inset-0 opacity-50">
+        <div className="absolute inset-0 opacity-100">
           <Image
             src="/images/video.gif"
             alt="Temple Placeholder"
@@ -330,7 +330,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 >
   INDIA
 </h1>
-          <div className="w-50 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          <div className="w-70 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
         
         <p className="mt-5 text-[11px] md:text-xs tracking-[0.32em] text-gold-light uppercase drop-shadow-[0_0_18px_rgba(242,197,111,.24)]">
