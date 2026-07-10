@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLock, FaLeaf, FaHands, FaGem, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
@@ -64,6 +65,40 @@ const launchHighlights = [
 ];
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [notifyMessage, setNotifyMessage] = useState("");
+  const [notifyStatus, setNotifyStatus] = useState<"success" | "error" | "">("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNotifySubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setNotifyMessage("");
+    setNotifyStatus("");
+
+    try {
+      // const response = await fetch("https://4frnn03l-8002.inc1.devtunnels.ms/api/v1/email/notify", {
+      const response = await fetch("https://ancient-india-backend-git-main-kush-qurilos-projects.vercel.app", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      const successMessage = result.status === true ? result.message : "";
+
+      setNotifyMessage(successMessage || "Subscribed Successfully");
+      setNotifyStatus("success");
+      setEmail("");
+    } catch {
+      setNotifyMessage("Unable to subscribe right now. Please try again.");
+      setNotifyStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen relative bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
 
@@ -504,18 +539,34 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             </h2>
             <p className="text-sm text-gray-300 mb-8 font-light">Subscribe to know when our pooja samagri collection goes live.</p>
 
-            <form className="w-full flex flex-col sm:flex-row gap-4">
+            <form onSubmit={handleNotifySubmit} className="w-full flex flex-col sm:flex-row gap-4">
               <div className="flex-1 relative">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="Enter your email address"
-                  className="w-full bg-black/10 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
+                  required
+                  className="notify-email-input w-full bg-black/10 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors shadow-inner"
                 />
               </div>
-              <button className="px-8 py-4 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold tracking-widest uppercase rounded-lg hover:shadow-[0_0_30px_rgba(193,155,94,0.4)] transition-all transform hover:scale-105">
-                Notify Me
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold tracking-widest uppercase rounded-lg hover:shadow-[0_0_30px_rgba(193,155,94,0.4)] transition-all transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
+              >
+                {isSubmitting ? "Submitting..." : "Notify Me"}
               </button>
             </form>
+            {notifyMessage && (
+              <p
+                className={`mt-4 text-xs font-medium ${
+                  notifyStatus === "success" ? "text-gold-light" : "text-red-300"
+                }`}
+              >
+                {notifyMessage}
+              </p>
+            )}
 
             <div className="flex items-center gap-2 mt-6 text-[10px] text-gray-400">
               <FaLock className="text-xs text-gold/50" />
@@ -544,6 +595,15 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           </div>
 
           <style jsx>{`
+            :global(.notify-email-input:-webkit-autofill),
+            :global(.notify-email-input:-webkit-autofill:hover),
+            :global(.notify-email-input:-webkit-autofill:focus) {
+              -webkit-text-fill-color: #ffffff;
+              caret-color: #ffffff;
+              box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.42) inset;
+              transition: background-color 9999s ease-in-out 0s;
+            }
+
             .smoke-stack {
               position: absolute;
   left: 50%;
