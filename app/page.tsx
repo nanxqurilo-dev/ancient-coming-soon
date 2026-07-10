@@ -606,56 +606,54 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
             .smoke-stack {
               position: absolute;
-  left: 50%;
-  bottom: 125px;
-
-  width: 70px;
-  height: 220px;
-
-  transform: translateX(-50%);
-
-  pointer-events: none;
-              width: 56px;
-              height: 178px;
+              left: 50%;
+              bottom: 180px; 
+              width: 96px;
+              height: 230px;
+              transform: translateX(-50%);
+              pointer-events: none;
               mix-blend-mode: screen;
-              opacity: 0.95;
+              opacity: 0.88;
             }
 
-           .smoke-stack-right{
-    left:50%;
-    right:auto;
-    transform:translateX(-50%) scaleX(-1);
-}
+            .smoke-stack-right {
+              left: 50%;
+              right: auto;
+              transform: translateX(-50%) scaleX(-1);
+            }
 
             .smoke-stack::before {
               content: "";
               position: absolute;
               left: 50%;
-             content:"";
-    position:absolute;
-
-    left:50%;
-    bottom:0;
-
-    width:6px;
-    height:6px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:rgba(255,220,180,.9);
-
-    filter:blur(3px);
-
-    box-shadow:
-        0 0 8px rgba(255,180,80,.8),
-        0 0 18px rgba(255,140,0,.5);
-
-              border-radius: 9999px;
-              background: rgba(255, 235, 201, 0.42);
-              filter: blur(5px);
+              bottom: 0;
+              width: 12px;
+              height: 12px;
               transform: translateX(-50%);
+              border-radius: 9999px;
+              background: rgba(255, 228, 190, 0.62);
+              filter: blur(5px);
+              box-shadow:
+                0 0 14px rgba(255, 213, 160, 0.58),
+                0 0 34px rgba(255, 177, 80, 0.25);
+            }
+
+            .smoke-stack::after {
+              content: ""; 
+              position: absolute;
+              left: 50%;
+              bottom: 24px;
+              width: 68px;
+              height: 130px;
+              transform: translateX(-50%);
+              border-radius: 9999px;
+              background:
+                radial-gradient(ellipse at 48% 18%, rgba(255, 255, 255, 0.22), transparent 35%),
+                radial-gradient(ellipse at 56% 52%, rgba(255, 255, 255, 0.15), transparent 48%),
+                radial-gradient(ellipse at 42% 78%, rgba(230, 220, 205, 0.11), transparent 50%);
+              filter: blur(18px);
+              opacity: 0;
+              animation: smokeCloud 8.8s ease-in-out infinite;
             }
 
             .smoke-thread,
@@ -669,126 +667,138 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             }
 
             .smoke-thread {
-              width: 7px;
-              height: 104px;
+              width: 18px;
+              height: 118px;
               background:
-                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.72), transparent 24%),
+                radial-gradient(ellipse at 50% 12%, rgba(255, 255, 255, 0.48), transparent 34%),
+                radial-gradient(ellipse at 58% 44%, rgba(255, 255, 255, 0.22), transparent 48%),
                 linear-gradient(
                   to top,
                   rgba(255, 244, 222, 0),
-                  rgba(255, 244, 222, 0.62) 20%,
-                  rgba(255, 255, 255, 0.22) 62%,
+                  rgba(255, 244, 222, 0.24) 24%,
+                  rgba(255, 255, 255, 0.18) 58%,
                   rgba(255, 255, 255, 0)
                 );
-              filter: blur(6px);
-              animation: smokeThread 8.4s ease-in-out infinite;
+              filter: blur(10px);
+              animation: smokeThread 9.4s ease-in-out infinite;
             }
 
             .smoke-thread-one {
-              margin-left: -4px;
-              animation-delay: -0.9s;
+              width: 20px;
+              height: 126px;
+              margin-left: -12px;
+              animation-delay: -1s;
             }
 
             .smoke-thread-two {
-              width: 10px;
-              height: 126px;
-              margin-left: 2px;
-              filter: blur(7px);
-              animation-delay: -2.8s;
-              animation-duration: 9.8s;
+              width: 28px;
+              height: 150px;
+              margin-left: -1px;
+              filter: blur(13px);
+              animation-delay: -3.1s;
+              animation-duration: 11.2s;
             }
 
             .smoke-thread-three {
-              width: 6px;
-              height: 92px;
-              margin-left: -9px;
-              filter: blur(5px);
-              animation-delay: -4.5s;
-              animation-duration: 7.4s;
+              width: 16px;
+              height: 106px;
+              margin-left: 12px;
+              filter: blur(9px);
+              animation-delay: -4.8s;
+              animation-duration: 8.6s;
             }
 
             .smoke-thread-four {
-              width: 12px;
-              height: 138px;
-              margin-left: 8px;
-              filter: blur(9px);
-              animation-delay: -6.1s;
-              animation-duration: 11s;
+              width: 34px;
+              height: 166px;
+              margin-left: -20px;
+              filter: blur(16px);
+              animation-delay: -6.4s;
+              animation-duration: 12.4s;
             }
 
             .smoke-thread-five {
-              width: 5px;
-              height: 112px;
-              margin-left: -1px;
-              filter: blur(5px);
-              animation-delay: -7.4s;
-              animation-duration: 9.4s;
+              width: 22px;
+              height: 136px;
+              margin-left: 18px;
+              filter: blur(12px);
+              animation-delay: -7.9s;
+              animation-duration: 10.6s;
             }
 
             .smoke-haze {
-bottom:20px;            
- width:26px;
-height:26px;
-              margin-left: -27px;
-              border-radius: 50%;
-              background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
-              filter: blur(16px);
-              animation: smokeHaze 9s ease-in-out infinite;
+              bottom: 34px;
+              width: 76px;
+              height: 82px;
+              margin-left: -42px;
+              border-radius: 9999px;
+              background:
+                radial-gradient(ellipse at 35% 35%, rgba(255, 255, 255, 0.2), transparent 52%),
+                radial-gradient(ellipse at 68% 62%, rgba(214, 205, 190, 0.12), transparent 58%);
+              filter: blur(22px);
+              animation: smokeHaze 10.5s ease-in-out infinite;
             }
 
-            @keyframes smokeThread{
+            @keyframes smokeThread {
+              0% {
+                opacity: 0;
+                transform: translate3d(0, 0, 0) rotate(-2deg) scale(0.22, 0.35);
+              }
 
-0%{
-opacity:0;
-transform:
-translateX(0)
-translateY(0)
-scale(.25);
-}
+              14% {
+                opacity: 0.5;
+                transform: translate3d(5px, -26px, 0) rotate(2deg) scale(0.45, 0.58);
+              }
 
-15%{
-opacity:.85;
-transform:
-translateX(2px)
-translateY(-25px)
-scale(.45);
-}
+              38% {
+                opacity: 0.42;
+                transform: translate3d(-9px, -76px, 0) rotate(-5deg) scale(0.86, 0.98);
+              }
 
-40%{
-opacity:.6;
-transform:
-translateX(-4px)
-translateY(-70px)
-scale(.8);
-}
+              66% {
+                opacity: 0.24;
+                transform: translate3d(11px, -142px, 0) rotate(5deg) scale(1.28, 1.34);
+              }
 
-70%{
-opacity:.3;
-transform:
-translateX(5px)
-translateY(-135px)
-scale(1.2);
-}
+              100% {
+                opacity: 0;
+                transform: translate3d(-7px, -226px, 0) rotate(-3deg) scale(1.8, 1.76);
+              }
+            }
 
-100%{
-opacity:0;
-transform:
-translateX(-2px)
-translateY(-205px)
-scale(1.8);
-}
+            @keyframes smokeCloud {
+              0%,
+              100% {
+                opacity: 0;
+                transform: translate3d(-50%, 12px, 0) scale(0.72);
+              }
 
-}
+              28% {
+                opacity: 0.38;
+                transform: translate3d(calc(-50% + 8px), -42px, 0) scale(0.98);
+              }
+
+              62% {
+                opacity: 0.22;
+                transform: translate3d(calc(-50% - 12px), -116px, 0) scale(1.36);
+              }
+            }
 
             @keyframes smokeHaze {
               0%,
               100% {
-                opacity: 0.08;
-                transform: translate3d(0, 12px, 0) scale(0.9);
+                opacity: 0.04;
+                transform: translate3d(0, 16px, 0) scale(0.76);
               }
-              45% {
+
+              35% {
                 opacity: 0.22;
-                transform: translate3d(8px, -34px, 0) scale(1.16);
+                transform: translate3d(12px, -46px, 0) scale(1.14);
+              }
+
+              70% {
+                opacity: 0.12;
+                transform: translate3d(-10px, -112px, 0) scale(1.52);
               }
             }
           `}</style>
