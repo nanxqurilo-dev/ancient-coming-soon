@@ -213,7 +213,7 @@ export default function Home() {
       </div>
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative z-10 container mx-auto px-4 pt-6 pb-24">
+      <section className="relative z-10 container mx-auto overflow-hidden px-4 pt-6 pb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -239,16 +239,17 @@ className="text-center relative flex flex-col items-center"        >
     scale: { duration: 1 },
     y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
   }}
-  className="hero-dhoop-visual pointer-events-none absolute left-[-110px] top-0 z-0 hidden h-[620px] w-[520px] opacity-70 md:block xl:left-[-70px] xl:h-[700px] xl:w-[590px]"
+  className="hero-dhoop-visual side-dhoop side-dhoop-left pointer-events-none absolute left-[-18px] top-2 z-0 hidden h-[560px] w-[430px] opacity-64 md:block xl:left-2 xl:h-[640px] xl:w-[500px]"
 >
   <Image
     src="/images/products/premium-dhoop-cone-clean-smoke.png"
     alt=""
     fill
-    sizes="590px"
+    sizes="500px"
     priority
-    className="scale-x-[-1] object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
+    className="side-dhoop-image scale-x-[-1] object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
   />
+  <span className="side-dhoop-ground" />
 </motion.div>
 
 <motion.div
@@ -281,30 +282,31 @@ className="text-center relative flex flex-col items-center"        >
     scale: { duration: 1, delay: 0.08 },
     y: { duration: 8.4, repeat: Infinity, ease: "easeInOut", delay: 0.4 },
   }}
-  className="hero-dhoop-visual pointer-events-none absolute top-[-10px] z-0 hidden h-[620px] w-[520px] opacity-80 md:left-[85%] md:block xl:left-[90%] xl:h-[700px] xl:w-[590px]"
+  className="hero-dhoop-visual side-dhoop side-dhoop-right pointer-events-none absolute right-[-18px] top-2 z-0 hidden h-[560px] w-[430px] opacity-72 md:block xl:right-2 xl:h-[640px] xl:w-[500px]"
 >
   <Image
     src="/images/products/premium-dhoop-cone-clean-smoke.png"
     alt=""
     fill
-    sizes="590px"
+    sizes="500px"
     priority
-    className="object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
+    className="side-dhoop-image object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
   />
+  <span className="side-dhoop-ground" />
 </motion.div>
 
 <motion.div
   initial={{ opacity: 0, y: -12 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
-  className="launch-panel relative z-10 mb-5 flex w-full max-w-4xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-gold/20 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.24),rgba(44,27,10,.34)_42%,rgba(8,4,2,.42)_100%)] px-4 py-6 shadow-[0_24px_90px_rgba(0,0,0,.34),inset_0_0_42px_rgba(212,166,90,.08)] md:py-7"
+  className="launch-panel relative z-10 mx-auto mb-5 flex w-full max-w-4xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-gold/20 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.28),rgba(44,27,10,.42)_42%,rgba(8,4,2,.5)_100%)] px-4 py-6 shadow-[0_24px_90px_rgba(0,0,0,.34),inset_0_0_42px_rgba(212,166,90,.12)] md:py-7"
 >
   <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
   <div className="absolute inset-x-12 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
   <div className="launch-orbit absolute left-1/2 top-1/2 hidden h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/20 md:block" />
   <div className="launch-orbit launch-orbit-slow absolute left-1/2 top-1/2 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-gold/15 md:block" />
 
-  <div className="ancient-side-art pointer-events-none absolute right-5 top-1/2 hidden h-28 w-28 -translate-y-1/2 text-gold-light/70 md:block">
+  <div className="ancient-side-art pointer-events-none absolute right-6 top-1/2 hidden h-28 w-28 -translate-y-1/2 text-gold-light/80 md:block">
     <div className="ancient-ring absolute inset-0 rounded-full border border-gold/25" />
     <div className="ancient-ring ancient-ring-slow absolute inset-3 rounded-full border border-dashed border-gold/20" />
     <GiLotus className="absolute left-1/2 top-1/2 text-4xl -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_0_20px_rgba(242,197,111,.42)]" />
@@ -928,6 +930,111 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               mask-composite: intersect;
             }
 
+            :global(.side-dhoop-image) {
+              filter: blur(1.15px) saturate(0.92) contrast(0.96);
+              animation: sideDhoopFocus 7.6s ease-in-out infinite;
+            }
+
+            :global(.side-dhoop)::before,
+            :global(.side-dhoop)::after {
+              content: "";
+              position: absolute;
+              z-index: 3;
+              pointer-events: none;
+              mix-blend-mode: screen;
+            }
+
+            :global(.side-dhoop)::before {
+              left: 17%;
+              top: 0;
+              width: 66%;
+              height: 46%;
+              border-radius: 9999px;
+              background:
+                radial-gradient(ellipse at 34% 28%, rgba(255, 255, 255, 0.24), transparent 42%),
+                radial-gradient(ellipse at 60% 52%, rgba(255, 255, 255, 0.18), transparent 48%),
+                linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.2) 44%, transparent 78%);
+              filter: blur(18px);
+              opacity: 0.2;
+              animation: sideSmokeDrift 8.8s ease-in-out infinite;
+            }
+
+            :global(.side-dhoop)::after {
+              left: 28%;
+              top: 7%;
+              width: 48%;
+              height: 34%;
+              border-radius: 9999px;
+              background:
+                radial-gradient(ellipse at 48% 20%, rgba(255, 255, 255, 0.34), transparent 42%),
+                radial-gradient(ellipse at 50% 72%, rgba(255, 255, 255, 0.16), transparent 56%);
+              filter: blur(14px);
+              opacity: 0.22;
+              animation: sideSmokeDriftSoft 11s ease-in-out infinite;
+            }
+
+            :global(.side-dhoop-right)::before,
+            :global(.side-dhoop-right)::after {
+              animation-delay: -2.3s;
+            }
+
+            :global(.side-dhoop-ground) {
+              position: absolute;
+              left: 11%;
+              right: 11%;
+              bottom: 6%;
+              z-index: 4;
+              height: 24%;
+              border-radius: 9999px;
+              background:
+                radial-gradient(ellipse at center, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.62) 44%, transparent 74%),
+                linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+              filter: blur(18px);
+              opacity: 0.9;
+            }
+
+            @keyframes sideDhoopFocus {
+              0%,
+              100% {
+                filter: blur(1.15px) saturate(0.92) contrast(0.96);
+              }
+
+              50% {
+                filter: blur(1.7px) saturate(0.88) contrast(0.92);
+              }
+            }
+
+            @keyframes sideSmokeDrift {
+              0%,
+              100% {
+                opacity: 0.16;
+                transform: translate3d(-8px, 8px, 0) rotate(-4deg) scale(0.96);
+              }
+
+              45% {
+                opacity: 0.34;
+                transform: translate3d(18px, -28px, 0) rotate(8deg) scale(1.14);
+              }
+
+              72% {
+                opacity: 0.22;
+                transform: translate3d(-16px, -52px, 0) rotate(-6deg) scale(1.3);
+              }
+            }
+
+            @keyframes sideSmokeDriftSoft {
+              0%,
+              100% {
+                opacity: 0.12;
+                transform: translate3d(10px, 10px, 0) rotate(8deg) scale(0.86);
+              }
+
+              50% {
+                opacity: 0.3;
+                transform: translate3d(-18px, -44px, 0) rotate(-10deg) scale(1.24);
+              }
+            }
+
             :global(.product-showcase-mask)::before,
             :global(.product-showcase-mask)::after {
               content: "";
@@ -998,6 +1105,9 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               :global(.launch-orbit),
               :global(.ancient-side-art),
               :global(.ancient-ring),
+              :global(.side-dhoop-image),
+              :global(.side-dhoop)::before,
+              :global(.side-dhoop)::after,
               :global(.product-marquee),
               :global(.product-tile) {
                 animation: none;
