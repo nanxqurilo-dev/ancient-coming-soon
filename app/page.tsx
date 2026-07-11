@@ -931,8 +931,13 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             }
 
             :global(.side-dhoop-image) {
-              filter: blur(1.15px) saturate(0.92) contrast(0.96);
+              filter: blur(1.45px) sepia(0.2) saturate(1.08) contrast(0.9) brightness(0.86);
+              opacity: 0.86;
               animation: sideDhoopFocus 7.6s ease-in-out infinite;
+            }
+
+            :global(.side-dhoop) {
+              filter: drop-shadow(0 0 44px rgba(212, 166, 90, 0.12));
             }
 
             :global(.side-dhoop)::before,
@@ -945,32 +950,39 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             }
 
             :global(.side-dhoop)::before {
-              left: 17%;
-              top: 0;
-              width: 66%;
-              height: 46%;
+              left: 12%;
+              top: -2%;
+              width: 76%;
+              height: 52%;
               border-radius: 9999px;
               background:
-                radial-gradient(ellipse at 34% 28%, rgba(255, 255, 255, 0.24), transparent 42%),
-                radial-gradient(ellipse at 60% 52%, rgba(255, 255, 255, 0.18), transparent 48%),
-                linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.2) 44%, transparent 78%);
-              filter: blur(18px);
-              opacity: 0.2;
+                radial-gradient(ellipse at 34% 28%, rgba(255, 222, 154, 0.24), transparent 42%),
+                radial-gradient(ellipse at 60% 52%, rgba(242, 197, 111, 0.18), transparent 48%),
+                linear-gradient(120deg, transparent 0%, rgba(255, 230, 175, 0.2) 44%, transparent 78%);
+              filter: blur(22px);
+              opacity: 0.26;
               animation: sideSmokeDrift 8.8s ease-in-out infinite;
             }
 
             :global(.side-dhoop)::after {
-              left: 28%;
-              top: 7%;
-              width: 48%;
-              height: 34%;
+              left: 22%;
+              top: 5%;
+              width: 58%;
+              height: 40%;
               border-radius: 9999px;
               background:
-                radial-gradient(ellipse at 48% 20%, rgba(255, 255, 255, 0.34), transparent 42%),
-                radial-gradient(ellipse at 50% 72%, rgba(255, 255, 255, 0.16), transparent 56%);
-              filter: blur(14px);
-              opacity: 0.22;
+                radial-gradient(ellipse at 48% 20%, rgba(255, 234, 188, 0.32), transparent 42%),
+                radial-gradient(ellipse at 50% 72%, rgba(212, 166, 90, 0.16), transparent 56%);
+              filter: blur(18px);
+              opacity: 0.26;
               animation: sideSmokeDriftSoft 11s ease-in-out infinite;
+            }
+
+            :global(.side-dhoop-left)::before,
+            :global(.side-dhoop-left)::after,
+            :global(.side-dhoop-right)::before,
+            :global(.side-dhoop-right)::after {
+              filter: blur(20px) sepia(0.3) saturate(1.2);
             }
 
             :global(.side-dhoop-right)::before,
@@ -980,58 +992,58 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
             :global(.side-dhoop-ground) {
               position: absolute;
-              left: 11%;
-              right: 11%;
-              bottom: 6%;
-              z-index: 4;
-              height: 24%;
-              border-radius: 9999px;
+              left: 0;
+              right: 0;
+              bottom: -2%;
+              z-index: 5;
+              height: 36%;
+              border-radius: 45% 45% 0 0;
               background:
-                radial-gradient(ellipse at center, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.62) 44%, transparent 74%),
-                linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-              filter: blur(18px);
-              opacity: 0.9;
+                radial-gradient(ellipse at center, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.84) 42%, rgba(0, 0, 0, 0.32) 68%, transparent 82%),
+                linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.92) 62%, rgba(0, 0, 0, 1) 100%);
+              filter: blur(24px);
+              opacity: 1;
             }
 
             @keyframes sideDhoopFocus {
               0%,
               100% {
-                filter: blur(1.15px) saturate(0.92) contrast(0.96);
+                filter: blur(1.45px) sepia(0.2) saturate(1.08) contrast(0.9) brightness(0.86);
               }
 
               50% {
-                filter: blur(1.7px) saturate(0.88) contrast(0.92);
+                filter: blur(2px) sepia(0.28) saturate(1.18) contrast(0.86) brightness(0.8);
               }
             }
 
             @keyframes sideSmokeDrift {
               0%,
               100% {
-                opacity: 0.16;
+                opacity: 0.18;
                 transform: translate3d(-8px, 8px, 0) rotate(-4deg) scale(0.96);
               }
 
               45% {
-                opacity: 0.34;
-                transform: translate3d(18px, -28px, 0) rotate(8deg) scale(1.14);
+                opacity: 0.42;
+                transform: translate3d(20px, -30px, 0) rotate(8deg) scale(1.18);
               }
 
               72% {
-                opacity: 0.22;
-                transform: translate3d(-16px, -52px, 0) rotate(-6deg) scale(1.3);
+                opacity: 0.26;
+                transform: translate3d(-18px, -58px, 0) rotate(-6deg) scale(1.36);
               }
             }
 
             @keyframes sideSmokeDriftSoft {
               0%,
               100% {
-                opacity: 0.12;
+                opacity: 0.14;
                 transform: translate3d(10px, 10px, 0) rotate(8deg) scale(0.86);
               }
 
               50% {
-                opacity: 0.3;
-                transform: translate3d(-18px, -44px, 0) rotate(-10deg) scale(1.24);
+                opacity: 0.36;
+                transform: translate3d(-20px, -48px, 0) rotate(-10deg) scale(1.3);
               }
             }
 
