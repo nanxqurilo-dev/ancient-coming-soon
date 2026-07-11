@@ -66,44 +66,21 @@ const launchHighlights = [
 
 const productShowcase = [
   {
-    name: "Rose Dhoop Stick",
-    note: "Rose Fragrance",
-    src: "/images/products/agarbatti-rose-premium.png",
+    name: "Premium Sambrani Cup",
+    note: "12 Cups",
+    src: "/images/products/sambrani-cup-premium.png",
+    wide: true,
   },
   {
-    name: "Sandalwood Dhoop Stick",
-    note: "Sandalwood Fragrance",
-    src: "/images/products/agarbatti-sandalwood-premium.png",
+    name: "Premium Incense Sticks",
+    note: "Pure Natural Divine",
+    src: "/images/products/premium-incense-sticks-box.png",
+    wide: true,
   },
   {
-    name: "Natural Dhoop Stick",
-    note: "Natural Fragrance",
-    src: "/images/products/dhoop-stick-natural.png",
-  },
-  {
-    name: "Mogra Agarbatti",
-    note: "Mogra Fragrance",
-    src: "/images/products/agarbatti-mogra-premium.png",
-  },
-  {
-    name: "Natural Agarbatti",
-    note: "Premium Agarbatti",
-    src: "/images/products/agarbatti-natural-premium.png",
-  },
-  {
-    name: "Sandalwood Agarbatti",
-    note: "Premium Pack",
-    src: "/images/products/agarbatti-sandalwood-tall.png",
-  },
-  {
-    name: "Rose Agarbatti",
-    note: "Premium Pack",
-    src: "/images/products/agarbatti-rose-tall.png",
-  },
-  {
-    name: "Complete Range",
-    note: "Dhoop, Cone & Agarbatti",
-    src: "/images/products/ancient-india-product-range.png",
+    name: "Bamboo Less Sticks",
+    note: "Low Smoke High Aroma",
+    src: "/images/products/bamboo-less-sticks-premium.png",
     wide: true,
   },
 ];
@@ -473,21 +450,19 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     </div>
   </div>
 
-  <div className="product-showcase-mask relative mt-6 overflow-hidden">
-    <div className="product-marquee flex w-max items-end gap-4 md:gap-6">
-      {[...productShowcase, ...productShowcase].map((product, index) => (
+  <div className="relative mt-6">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+      {productShowcase.map((product) => (
         <div
-          key={`${product.name}-${index}`}
-          className={`product-tile group relative flex shrink-0 flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[.08] to-black/20 shadow-[0_18px_42px_rgba(0,0,0,.28)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 ${
-            product.wide ? "w-[240px] md:w-[330px]" : "w-[132px] md:w-[168px]"
-          } h-[196px] md:h-[238px]`}
+          key={product.name}
+          className="product-tile group relative flex h-[220px] flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[.08] to-black/20 shadow-[0_18px_42px_rgba(0,0,0,.28)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 md:h-[280px]"
         >
           <div className="absolute inset-x-2 top-2 bottom-12">
             <Image
               src={product.src}
               alt={product.name}
               fill
-              sizes={product.wide ? "(max-width: 768px) 240px, 330px" : "(max-width: 768px) 132px, 168px"}
+              sizes="(max-width: 768px) 100vw, 330px"
               className="object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,.5)] transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -811,36 +786,6 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               mask-composite: intersect;
             }
 
-            .product-showcase-mask::before,
-            .product-showcase-mask::after {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              z-index: 20;
-              width: 54px;
-              pointer-events: none;
-            }
-
-            .product-showcase-mask::before {
-              left: 0;
-              background: linear-gradient(to right, rgba(8, 4, 2, 0.96), transparent);
-            }
-
-            .product-showcase-mask::after {
-              right: 0;
-              background: linear-gradient(to left, rgba(8, 4, 2, 0.96), transparent);
-            }
-
-            .product-marquee {
-              animation: productMarquee 34s linear infinite;
-              will-change: transform;
-            }
-
-            .product-showcase-mask:hover .product-marquee {
-              animation-play-state: paused;
-            }
-
             .product-tile {
               animation: productFloat 5.8s ease-in-out infinite;
             }
@@ -851,16 +796,6 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
             .product-tile:nth-child(3n) {
               animation-delay: -2.6s;
-            }
-
-            @keyframes productMarquee {
-              from {
-                transform: translate3d(0, 0, 0);
-              }
-
-              to {
-                transform: translate3d(-50%, 0, 0);
-              }
             }
 
             @keyframes productFloat {
@@ -874,19 +809,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               }
             }
 
-            @media (max-width: 640px) {
-              .product-marquee {
-                animation-duration: 28s;
-              }
-
-              .product-showcase-mask::before,
-              .product-showcase-mask::after {
-                width: 28px;
-              }
-            }
-
             @media (prefers-reduced-motion: reduce) {
-              .product-marquee,
               .product-tile {
                 animation: none;
               }
