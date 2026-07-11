@@ -314,7 +314,7 @@ className="text-center relative flex flex-col items-center"        >
   initial={{ opacity: 0, y: -12 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
-  className="launch-panel relative z-10 mx-auto mb-5 flex w-full max-w-4xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-gold/20 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.28),rgba(44,27,10,.42)_42%,rgba(8,4,2,.5)_100%)] px-4 py-6 shadow-[0_24px_90px_rgba(0,0,0,.34),inset_0_0_42px_rgba(212,166,90,.12)] md:py-7"
+  className="launch-panel relative z-10 mx-auto mb-5 hidden w-full max-w-4xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-gold/20 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.28),rgba(44,27,10,.42)_42%,rgba(8,4,2,.5)_100%)] px-4 py-6 shadow-[0_24px_90px_rgba(0,0,0,.34),inset_0_0_42px_rgba(212,166,90,.12)] md:flex md:py-7"
 >
   <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
   <div className="absolute inset-x-12 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -474,6 +474,48 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 </motion.div>
 
 
+<motion.div
+  {...fadeInUp}
+  // className="mobile-category-slider relative z-10 mt-1 w-full overflow-hidden py-2 md:hidden"
+  className="mobile-category-slider relative z-10 -mt-10 w-full overflow-hidden py-2 md:hidden"
+
+>
+  <div className="mobile-category-track flex w-max gap-3">
+    {[...launchSignals, ...launchSignals].map((item, index) => (
+      <motion.div
+        key={`${item.label}-${index}`}
+        whileTap={{ scale: 0.98 }}
+        className="mobile-category-card group relative h-[172px] w-[232px] shrink-0 overflow-hidden rounded-2xl border border-gold/20 bg-black/30 p-2 text-left shadow-[0_18px_45px_rgba(0,0,0,.36)] backdrop-blur-sm"
+      >
+        <div className="relative h-[112px] overflow-hidden rounded-xl">
+          <Image
+            src={item.image}
+            alt={item.label}
+            fill
+            sizes="232px"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/8 to-transparent" />
+        </div>
+        <div className="mt-2 flex items-center gap-2 px-1">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/12 text-gold-light shadow-[0_0_18px_rgba(212,166,90,.18)]">
+            {item.icon}
+          </span>
+          <div className="min-w-0">
+            <p className="truncate text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+              {item.label}
+            </p>
+            <p className="mt-0.5 truncate text-[9px] uppercase tracking-[0.18em] text-gold-light/80">
+              {item.sub}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
+
 
 
 
@@ -482,13 +524,14 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           {/* <p className="text-lg tracking-[0.3em] text-gold font-display uppercase drop-shadow-md"> */}
           {/* <p className="mt-1 text-base md:text-lg tracking-[0.45em] text-gold">  
             Ancient</p> */}
-<h1
+{/* <h1
   className="
     relative
     z-10
     -mt-6
     md:-mt-8
-    text-7xl
+    text-5xl
+    sm:text-6xl
     md:text-[11rem]
     leading-none
     font-serif
@@ -496,8 +539,33 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     text-[#C79A4B]
     drop-shadow-[0_0_30px_rgba(199,154,75,.25)]
   "
+> */}
+
+
+
+
+
+<h1
+  className="
+    relative
+    z-10
+    mt-4
+    md:-mt-8
+    text-5xl
+    sm:text-6xl
+    md:text-[11rem]
+    leading-[0.95]
+    font-serif
+    tracking-[0.08em]
+    text-[#C79A4B]
+    drop-shadow-[0_0_30px_rgba(199,154,75,.25)]
+  "
 >
-  INDIA
+
+
+
+  <span className="md:hidden">COMING<br />SOON</span>
+  <span className="hidden md:inline">INDIA</span>
 </h1>
           <div className="w-70 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
@@ -899,6 +967,68 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               animation-delay: -4s;
             }
 
+            :global(.mobile-category-slider)::before,
+            :global(.mobile-category-slider)::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              z-index: 10;
+              width: 42px;
+              pointer-events: none;
+            }
+
+            :global(.mobile-category-slider)::before {
+              left: 0;
+              background: linear-gradient(to right, rgba(11, 6, 3, 0.96), transparent);
+            }
+
+            :global(.mobile-category-slider)::after {
+              right: 0;
+              background: linear-gradient(to left, rgba(11, 6, 3, 0.96), transparent);
+            }
+
+            :global(.mobile-category-track) {
+              animation: mobileCategoryMarquee 18s linear infinite;
+              will-change: transform;
+            }
+
+            :global(.mobile-category-card)::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              z-index: 2;
+              pointer-events: none;
+              background: linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(242, 197, 111, 0.12) 40%,
+                rgba(255, 255, 255, 0.22) 50%,
+                rgba(242, 197, 111, 0.1) 60%,
+                transparent 100%
+              );
+              transform: translateX(-120%);
+              animation: cardShine 5.8s ease-in-out infinite;
+            }
+
+            :global(.mobile-category-card:nth-child(2n))::before {
+              animation-delay: -1.8s;
+            }
+
+            :global(.mobile-category-card:nth-child(3n))::before {
+              animation-delay: -3.6s;
+            }
+
+            @keyframes mobileCategoryMarquee {
+              from {
+                transform: translate3d(0, 0, 0);
+              }
+
+              to {
+                transform: translate3d(-50%, 0, 0);
+              }
+            }
+
             :global(.ancient-side-art) {
               animation: ancientFloat 6.5s ease-in-out infinite;
             }
@@ -1192,6 +1322,8 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               :global(.launch-product-card)::before,
               :global(.ancient-side-art),
               :global(.ancient-ring),
+              :global(.mobile-category-track),
+              :global(.mobile-category-card)::before,
               :global(.side-dhoop-image),
               :global(.side-dhoop)::before,
               :global(.side-dhoop)::after,
