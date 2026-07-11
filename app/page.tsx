@@ -238,7 +238,7 @@ className="text-center relative flex flex-col items-center"        >
   className="hero-dhoop-visual pointer-events-none absolute left-[-110px] top-0 z-0 hidden h-[620px] w-[520px] opacity-70 md:block xl:left-[-70px] xl:h-[700px] xl:w-[590px]"
 >
   <Image
-    src="/images/products/premium-dhoop-cone-lotus-smoke.png"
+    src="/images/products/premium-dhoop-cone-clean-smoke.png"
     alt=""
     fill
     sizes="590px"
@@ -256,13 +256,34 @@ className="text-center relative flex flex-col items-center"        >
     scale: { duration: 1, delay: 0.08 },
     y: { duration: 8.4, repeat: Infinity, ease: "easeInOut", delay: 0.4 },
   }}
-  className="hero-dhoop-visual pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 opacity-75 sm:h-[500px] sm:w-[500px] md:left-[85%] md:top-[-10px] md:h-[620px] md:w-[520px] md:opacity-80 xl:left-[90%] xl:h-[700px] xl:w-[590px]"
+  className="hero-dhoop-visual pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 opacity-75 sm:h-[500px] sm:w-[500px] md:hidden"
 >
   <Image
     src="/images/products/premium-dhoop-cone-lotus-smoke.png"
     alt=""
     fill
     sizes="(max-width: 768px) 420px, 590px"
+    priority
+    className="object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
+  />
+</motion.div>
+
+<motion.div
+  aria-hidden="true"
+  initial={{ opacity: 0, scale: 0.96, y: 18 }}
+  animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+  transition={{
+    opacity: { duration: 1, delay: 0.08 },
+    scale: { duration: 1, delay: 0.08 },
+    y: { duration: 8.4, repeat: Infinity, ease: "easeInOut", delay: 0.4 },
+  }}
+  className="hero-dhoop-visual pointer-events-none absolute top-[-10px] z-0 hidden h-[620px] w-[520px] opacity-80 md:left-[85%] md:block xl:left-[90%] xl:h-[700px] xl:w-[590px]"
+>
+  <Image
+    src="/images/products/premium-dhoop-cone-clean-smoke.png"
+    alt=""
+    fill
+    sizes="590px"
     priority
     className="object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
   />
