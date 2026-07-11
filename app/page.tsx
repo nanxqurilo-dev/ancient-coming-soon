@@ -209,7 +209,7 @@ export default function Home() {
       </div>
 
       {/* ================= TOP NAVIGATION (GLASSMORPHISM) ================= */}
-      <header className="relative z-20 flex justify-between items-center p-4 md:px-12 text-xs tracking-widest bg-black/30 backdrop-blur-md border-b border-white/5 shadow-lg">
+      {/* <header className="relative z-20 flex justify-between items-center p-4 md:px-12 text-xs tracking-widest bg-black/30 backdrop-blur-md border-b border-white/5 shadow-lg">
         <div className="flex gap-6 text-gold-light hover:text-white transition-colors">
           <FaFacebookF className="cursor-pointer hover:scale-110 transition-transform" />
           <FaInstagram className="cursor-pointer hover:scale-110 transition-transform" />
@@ -219,7 +219,67 @@ export default function Home() {
           <span>PREMIUM SPIRITUAL OFFERINGS</span>
           <div className="w-6 h-[1px] bg-gold-light/50"></div>
         </div>
-      </header>
+      </header> */}
+
+
+<header className="relative z-20 border-b border-white/5 bg-black/30 backdrop-blur-md">
+
+  <div className="container mx-auto px-4 py-3">
+
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+
+      <div className="flex items-center gap-5 text-gold-light">
+
+        <FaFacebookF className="cursor-pointer hover:text-white" />
+        <FaInstagram className="cursor-pointer hover:text-white" />
+        <FaYoutube className="cursor-pointer hover:text-white" />
+
+      </div>
+
+      <div className="text-center flex-1">
+
+        <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-gold-light">
+          Premium Pooja Essentials • Natural Incense • Devotion in Every Fragrance
+        </p>
+
+        <p className="mt-1 text-[11px] md:text-sm text-gray-400">
+          Launching India's premium destination for Dhoop, Agarbatti, Sambrani Cups & Sacred Ritual Essentials.
+        </p>
+
+      </div>
+
+
+      <div className="flex flex-col md:items-end text-[11px] text-gray-300">
+
+        <a
+          href="tel:+919289910711"
+          className="hover:text-gold transition"
+        >
+          📞 +91 92899 10711
+        </a>
+
+        <a
+          href="mailto:care@ancientindia.co"
+          className="hover:text-gold transition"
+        >
+          ✉ care@ancientindia.co
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+
+
+
+
+
 
       {/* ================= SCROLL INDICATOR ================= */}
       <div className="fixed left-4 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-4 text-[10px] tracking-widest text-gold-light/60">
