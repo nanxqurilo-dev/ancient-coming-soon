@@ -450,12 +450,12 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     </div>
   </div>
 
-  <div className="relative mt-6">
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-      {productShowcase.map((product) => (
+  <div className="product-showcase-mask relative mt-6 overflow-hidden">
+    <div className="product-marquee flex w-max gap-4 md:gap-6">
+      {[...productShowcase, ...productShowcase, ...productShowcase].map((product, index) => (
         <div
-          key={product.name}
-          className="product-tile group relative flex h-[220px] flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[.08] to-black/20 shadow-[0_18px_42px_rgba(0,0,0,.28)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 md:h-[280px]"
+          key={`${product.name}-${index}`}
+          className="product-tile group relative flex h-[220px] w-[280px] shrink-0 flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[.08] to-black/20 shadow-[0_18px_42px_rgba(0,0,0,.28)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 sm:w-[360px] md:h-[280px] md:w-[438px]"
         >
           <div className="absolute inset-x-2 top-2 bottom-12">
             <Image
@@ -786,16 +786,56 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               mask-composite: intersect;
             }
 
-            .product-tile {
+            :global(.product-showcase-mask)::before,
+            :global(.product-showcase-mask)::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              z-index: 20;
+              width: 44px;
+              pointer-events: none;
+            }
+
+            :global(.product-showcase-mask)::before {
+              left: 0;
+              background: linear-gradient(to right, rgba(14, 8, 4, 0.98), transparent);
+            }
+
+            :global(.product-showcase-mask)::after {
+              right: 0;
+              background: linear-gradient(to left, rgba(14, 8, 4, 0.98), transparent);
+            }
+
+            :global(.product-marquee) {
+              animation: productMarquee 28s linear infinite;
+              will-change: transform;
+            }
+
+            :global(.product-showcase-mask:hover .product-marquee) {
+              animation-play-state: paused;
+            }
+
+            :global(.product-tile) {
               animation: productFloat 5.8s ease-in-out infinite;
             }
 
-            .product-tile:nth-child(2n) {
+            :global(.product-tile:nth-child(2n)) {
               animation-delay: -1.4s;
             }
 
-            .product-tile:nth-child(3n) {
+            :global(.product-tile:nth-child(3n)) {
               animation-delay: -2.6s;
+            }
+
+            @keyframes productMarquee {
+              from {
+                transform: translate3d(0, 0, 0);
+              }
+
+              to {
+                transform: translate3d(calc(-100% / 3), 0, 0);
+              }
             }
 
             @keyframes productFloat {
@@ -810,8 +850,20 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             }
 
             @media (prefers-reduced-motion: reduce) {
-              .product-tile {
+              :global(.product-marquee),
+              :global(.product-tile) {
                 animation: none;
+              }
+            }
+
+            @media (max-width: 640px) {
+              :global(.product-marquee) {
+                animation-duration: 22s;
+              }
+
+              :global(.product-showcase-mask)::before,
+              :global(.product-showcase-mask)::after {
+                width: 24px;
               }
             }
 
