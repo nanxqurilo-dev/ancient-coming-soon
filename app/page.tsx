@@ -64,6 +64,50 @@ const launchHighlights = [
   "Packed for home and temple rituals",
 ];
 
+const productShowcase = [
+  {
+    name: "Rose Dhoop Stick",
+    note: "Rose Fragrance",
+    src: "/images/products/agarbatti-rose-premium.png",
+  },
+  {
+    name: "Sandalwood Dhoop Stick",
+    note: "Sandalwood Fragrance",
+    src: "/images/products/agarbatti-sandalwood-premium.png",
+  },
+  {
+    name: "Natural Dhoop Stick",
+    note: "Natural Fragrance",
+    src: "/images/products/dhoop-stick-natural.png",
+  },
+  {
+    name: "Mogra Agarbatti",
+    note: "Mogra Fragrance",
+    src: "/images/products/agarbatti-mogra-premium.png",
+  },
+  {
+    name: "Natural Agarbatti",
+    note: "Premium Agarbatti",
+    src: "/images/products/agarbatti-natural-premium.png",
+  },
+  {
+    name: "Sandalwood Agarbatti",
+    note: "Premium Pack",
+    src: "/images/products/agarbatti-sandalwood-tall.png",
+  },
+  {
+    name: "Rose Agarbatti",
+    note: "Premium Pack",
+    src: "/images/products/agarbatti-rose-tall.png",
+  },
+  {
+    name: "Complete Range",
+    note: "Dhoop, Cone & Agarbatti",
+    src: "/images/products/ancient-india-product-range.png",
+    wide: true,
+  },
+];
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [notifyMessage, setNotifyMessage] = useState("");
@@ -337,6 +381,63 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
   Launching Soon <span className="mx-2 text-gold/60">&bull;</span> Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Early Access
 </p>
 
+<motion.div
+  {...fadeInUp}
+  className="relative mt-8 w-full max-w-6xl overflow-hidden rounded-2xl border border-gold/20 bg-black/25 px-4 py-5 shadow-[0_22px_70px_rgba(0,0,0,.34)] backdrop-blur-md md:px-6 md:py-6"
+>
+  <div className="absolute inset-x-10 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+  <div className="absolute -left-24 top-8 h-56 w-56 rounded-full bg-rose-500/10 blur-3xl" />
+  <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
+
+  <div className="relative flex flex-col items-center justify-between gap-4 md:flex-row">
+    <div className="text-center md:text-left">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-gold-light">
+        Product Collection Launching Soon
+      </p>
+      <h2 className="mt-2 font-serif text-2xl leading-tight text-white md:text-4xl">
+        Dhoop, Agarbatti & Fragrance Essentials
+      </h2>
+    </div>
+    <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-200">
+      <span className="rounded-full border border-rose-300/30 bg-rose-400/10 px-3 py-2">Rose</span>
+      <span className="rounded-full border border-amber-300/30 bg-amber-400/10 px-3 py-2">Sandalwood</span>
+      <span className="rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-2">Natural</span>
+      <span className="rounded-full border border-white/20 bg-white/5 px-3 py-2">Mogra</span>
+    </div>
+  </div>
+
+  <div className="product-showcase-mask relative mt-6 overflow-hidden">
+    <div className="product-marquee flex w-max items-end gap-4 md:gap-6">
+      {[...productShowcase, ...productShowcase].map((product, index) => (
+        <div
+          key={`${product.name}-${index}`}
+          className={`product-tile group relative flex shrink-0 flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-white/[.08] to-black/20 shadow-[0_18px_42px_rgba(0,0,0,.28)] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 ${
+            product.wide ? "w-[240px] md:w-[330px]" : "w-[132px] md:w-[168px]"
+          } h-[196px] md:h-[238px]`}
+        >
+          <div className="absolute inset-x-2 top-2 bottom-12">
+            <Image
+              src={product.src}
+              alt={product.name}
+              fill
+              sizes={product.wide ? "(max-width: 768px) 240px, 330px" : "(max-width: 768px) 132px, 168px"}
+              className="object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,.5)] transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="relative z-10 border-t border-white/10 bg-black/35 px-3 py-2 text-left backdrop-blur-sm">
+            <p className="truncate text-[11px] font-semibold text-white">{product.name}</p>
+            <p className="mt-0.5 truncate text-[9px] uppercase tracking-[0.18em] text-gold-light/80">{product.note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <p className="relative mt-5 text-[11px] uppercase tracking-[0.24em] text-gray-300">
+    Incense sticks <span className="mx-2 text-gold/60">&bull;</span> Dry dhoop cones <span className="mx-2 text-gold/60">&bull;</span> Ritual fragrance range
+  </p>
+</motion.div>
+
 <div className="mt-7 max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-b from-black/35 to-black/15 px-5 py-6 md:px-8 md:py-7 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.38)]">
   <p className="mx-auto max-w-4xl text-gray-300 leading-8 text-[15px] md:text-lg font-light tracking-[0.01em]">
     Our online pooja samagri store is getting ready to open soon. We are
@@ -602,6 +703,87 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               caret-color: #ffffff;
               box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.42) inset;
               transition: background-color 9999s ease-in-out 0s;
+            }
+
+            .product-showcase-mask::before,
+            .product-showcase-mask::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              z-index: 20;
+              width: 54px;
+              pointer-events: none;
+            }
+
+            .product-showcase-mask::before {
+              left: 0;
+              background: linear-gradient(to right, rgba(8, 4, 2, 0.96), transparent);
+            }
+
+            .product-showcase-mask::after {
+              right: 0;
+              background: linear-gradient(to left, rgba(8, 4, 2, 0.96), transparent);
+            }
+
+            .product-marquee {
+              animation: productMarquee 34s linear infinite;
+              will-change: transform;
+            }
+
+            .product-showcase-mask:hover .product-marquee {
+              animation-play-state: paused;
+            }
+
+            .product-tile {
+              animation: productFloat 5.8s ease-in-out infinite;
+            }
+
+            .product-tile:nth-child(2n) {
+              animation-delay: -1.4s;
+            }
+
+            .product-tile:nth-child(3n) {
+              animation-delay: -2.6s;
+            }
+
+            @keyframes productMarquee {
+              from {
+                transform: translate3d(0, 0, 0);
+              }
+
+              to {
+                transform: translate3d(-50%, 0, 0);
+              }
+            }
+
+            @keyframes productFloat {
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+
+              50% {
+                transform: translateY(-8px);
+              }
+            }
+
+            @media (max-width: 640px) {
+              .product-marquee {
+                animation-duration: 28s;
+              }
+
+              .product-showcase-mask::before,
+              .product-showcase-mask::after {
+                width: 28px;
+              }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+              .product-marquee,
+              .product-tile {
+                animation: none;
+              }
             }
 
             .smoke-stack {
