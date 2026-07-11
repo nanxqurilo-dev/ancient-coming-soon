@@ -297,10 +297,20 @@ className="text-center relative flex flex-col items-center"        >
   initial={{ opacity: 0, y: -12 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
-  className="launch-panel relative z-10 mb-4 flex w-full max-w-3xl flex-col items-center gap-4 px-3 py-4"
+  className="launch-panel relative z-10 mb-5 flex w-full max-w-4xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-gold/20 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.24),rgba(44,27,10,.34)_42%,rgba(8,4,2,.42)_100%)] px-4 py-6 shadow-[0_24px_90px_rgba(0,0,0,.34),inset_0_0_42px_rgba(212,166,90,.08)] md:py-7"
 >
+  <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+  <div className="absolute inset-x-12 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
   <div className="launch-orbit absolute left-1/2 top-1/2 hidden h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/20 md:block" />
   <div className="launch-orbit launch-orbit-slow absolute left-1/2 top-1/2 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-gold/15 md:block" />
+
+  <div className="ancient-side-art pointer-events-none absolute right-5 top-1/2 hidden h-28 w-28 -translate-y-1/2 text-gold-light/70 md:block">
+    <div className="ancient-ring absolute inset-0 rounded-full border border-gold/25" />
+    <div className="ancient-ring ancient-ring-slow absolute inset-3 rounded-full border border-dashed border-gold/20" />
+    <GiLotus className="absolute left-1/2 top-1/2 text-4xl -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_0_20px_rgba(242,197,111,.42)]" />
+    <span className="absolute left-1/2 top-1 h-2 w-2 -translate-x-1/2 rounded-full bg-gold-light shadow-[0_0_14px_rgba(242,197,111,.8)]" />
+    <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-gold/80 shadow-[0_0_12px_rgba(212,166,90,.7)]" />
+  </div>
 
   <div className="launch-badge relative overflow-hidden rounded-full border border-gold/35 bg-black/35 px-7 py-3 shadow-[0_0_45px_rgba(212,166,90,.24)] backdrop-blur-md md:px-10 md:py-4">
     <span className="relative z-10 block text-base font-bold uppercase tracking-[0.42em] text-gold-light drop-shadow-[0_0_18px_rgba(242,197,111,.38)] md:text-2xl">
@@ -825,6 +835,19 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               animation-direction: reverse;
             }
 
+            :global(.ancient-side-art) {
+              animation: ancientFloat 6.5s ease-in-out infinite;
+            }
+
+            :global(.ancient-ring) {
+              animation: ancientSpin 16s linear infinite;
+            }
+
+            :global(.ancient-ring-slow) {
+              animation-duration: 26s;
+              animation-direction: reverse;
+            }
+
             @keyframes launchGlow {
               0%,
               100% {
@@ -856,6 +879,29 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
               to {
                 transform: translate(-50%, -50%) rotate(360deg);
+              }
+            }
+
+            @keyframes ancientFloat {
+              0%,
+              100% {
+                opacity: 0.62;
+                transform: translateY(-50%) translateX(0) scale(0.98);
+              }
+
+              50% {
+                opacity: 1;
+                transform: translateY(calc(-50% - 6px)) translateX(-4px) scale(1.03);
+              }
+            }
+
+            @keyframes ancientSpin {
+              from {
+                transform: rotate(0deg);
+              }
+
+              to {
+                transform: rotate(360deg);
               }
             }
 
@@ -950,6 +996,8 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               :global(.launch-badge),
               :global(.launch-badge)::before,
               :global(.launch-orbit),
+              :global(.ancient-side-art),
+              :global(.ancient-ring),
               :global(.product-marquee),
               :global(.product-tile) {
                 animation: none;
