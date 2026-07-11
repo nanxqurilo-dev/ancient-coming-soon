@@ -108,6 +108,8 @@ const productShowcase = [
   },
 ];
 
+const launchSignals = ["Dhoop Sticks", "Agarbatti", "Dry Dhoop Cones"];
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [notifyMessage, setNotifyMessage] = useState("");
@@ -247,6 +249,69 @@ className="text-center relative flex flex-col items-center"        >
 {/* Small Bright Glow */}
 <div className="absolute left-1/2 top-28 -translate-x-1/2 w-[220px] h-[220px] rounded-full bg-yellow-300/20 blur-[80px] animate-pulse pointer-events-none -z-10" />
 
+<motion.div
+  aria-hidden="true"
+  initial={{ opacity: 0, scale: 0.96, y: 18 }}
+  animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+  transition={{
+    opacity: { duration: 1 },
+    scale: { duration: 1 },
+    y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+  }}
+  className="hero-dhoop-visual pointer-events-none absolute left-[-110px] top-0 z-0 hidden h-[620px] w-[520px] opacity-70 md:block xl:left-[-70px] xl:h-[700px] xl:w-[590px]"
+>
+  <Image
+    src="/images/products/premium-dhoop-cone-lotus-smoke.png"
+    alt=""
+    fill
+    sizes="590px"
+    priority
+    className="scale-x-[-1] object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
+  />
+</motion.div>
+
+<motion.div
+  aria-hidden="true"
+  initial={{ opacity: 0, scale: 0.96, y: 18 }}
+  animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+  transition={{
+    opacity: { duration: 1, delay: 0.08 },
+    scale: { duration: 1, delay: 0.08 },
+    y: { duration: 8.4, repeat: Infinity, ease: "easeInOut", delay: 0.4 },
+  }}
+  className="hero-dhoop-visual pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 opacity-75 sm:h-[500px] sm:w-[500px] md:left-[85%] md:top-[-10px] md:h-[620px] md:w-[520px] md:opacity-80 xl:left-[90%] xl:h-[700px] xl:w-[590px]"
+>
+  <Image
+    src="/images/products/premium-dhoop-cone-lotus-smoke.png"
+    alt=""
+    fill
+    sizes="(max-width: 768px) 420px, 590px"
+    priority
+    className="object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.65)]"
+  />
+</motion.div>
+
+<motion.div
+  initial={{ opacity: 0, y: -12 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative z-10 mb-3 flex flex-col items-center gap-3"
+>
+  <div className="launch-badge relative overflow-hidden rounded-full border border-gold/30 bg-black/30 px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-gold-light shadow-[0_0_32px_rgba(212,166,90,.18)] backdrop-blur-md">
+    <span className="relative z-10">Coming Soon</span>
+  </div>
+  <div className="flex max-w-full flex-wrap items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-gray-200">
+    {launchSignals.map((item) => (
+      <span
+        key={item}
+        className="rounded-full border border-white/10 bg-white/[.06] px-3 py-1.5 backdrop-blur-sm"
+      >
+        {item}
+      </span>
+    ))}
+  </div>
+</motion.div>
+
 
 
 <motion.div
@@ -254,7 +319,7 @@ className="text-center relative flex flex-col items-center"        >
   animate={{ opacity: 1, y: 0, scale: 1 }}
   transition={{ duration: 1 }}
   // className="flex justify-center mb-8"
-className="flex justify-center -mb-10">
+className="relative z-10 flex justify-center -mb-10">
   {/* <motion.div
     animate={{
       y: [0, -8, 0],
@@ -361,6 +426,8 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             Ancient</p> */}
 <h1
   className="
+    relative
+    z-10
     -mt-6
     md:-mt-8
     text-7xl
@@ -377,13 +444,13 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
           <div className="w-70 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
           {/* <p className="text-sm tracking-[0.2em] text-gray-300 uppercase font-light drop-shadow-lg">Rooted in Tradition. Crafted with Devotion.</p> */}
         
-        <p className="mt-5 text-[11px] md:text-xs tracking-[0.32em] text-gold-light uppercase drop-shadow-[0_0_18px_rgba(242,197,111,.24)]">
+        <p className="relative z-10 mt-5 text-[11px] md:text-xs tracking-[0.32em] text-gold-light uppercase drop-shadow-[0_0_18px_rgba(242,197,111,.24)]">
   Launching Soon <span className="mx-2 text-gold/60">&bull;</span> Complete Pooja Essentials <span className="mx-2 text-gold/60">&bull;</span> Early Access
 </p>
 
 <motion.div
   {...fadeInUp}
-  className="relative mt-8 w-full max-w-6xl overflow-hidden rounded-2xl border border-gold/20 bg-black/25 px-4 py-5 shadow-[0_22px_70px_rgba(0,0,0,.34)] backdrop-blur-md md:px-6 md:py-6"
+  className="relative z-10 mt-8 w-full max-w-6xl overflow-hidden rounded-2xl border border-gold/20 bg-black/25 px-4 py-5 shadow-[0_22px_70px_rgba(0,0,0,.34)] backdrop-blur-md md:px-6 md:py-6"
 >
   <div className="absolute inset-x-10 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
   <div className="absolute -left-24 top-8 h-56 w-56 rounded-full bg-rose-500/10 blur-3xl" />
@@ -438,7 +505,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
   </p>
 </motion.div>
 
-<div className="mt-7 max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-b from-black/35 to-black/15 px-5 py-6 md:px-8 md:py-7 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.38)]">
+<div className="relative z-10 mt-7 max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-b from-black/35 to-black/15 px-5 py-6 md:px-8 md:py-7 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,.38)]">
   <p className="mx-auto max-w-4xl text-gray-300 leading-8 text-[15px] md:text-lg font-light tracking-[0.01em]">
     Our online pooja samagri store is getting ready to open soon. We are
     curating premium dhoop, agarbatti, havan essentials, kapoor, diya items,
@@ -703,6 +770,45 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               caret-color: #ffffff;
               box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.42) inset;
               transition: background-color 9999s ease-in-out 0s;
+            }
+
+            .launch-badge::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(
+                110deg,
+                transparent 0%,
+                rgba(242, 197, 111, 0.12) 38%,
+                rgba(255, 255, 255, 0.32) 50%,
+                rgba(242, 197, 111, 0.12) 62%,
+                transparent 100%
+              );
+              transform: translateX(-120%);
+              animation: badgeShine 4.8s ease-in-out infinite;
+            }
+
+            @keyframes badgeShine {
+              0%,
+              42% {
+                transform: translateX(-120%);
+              }
+
+              72%,
+              100% {
+                transform: translateX(120%);
+              }
+            }
+
+            .hero-dhoop-visual {
+              -webkit-mask-image:
+                linear-gradient(to bottom, transparent 0%, black 7%, black 82%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 8%, black 88%, transparent 100%);
+              -webkit-mask-composite: source-in;
+              mask-image:
+                linear-gradient(to bottom, transparent 0%, black 7%, black 82%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 8%, black 88%, transparent 100%);
+              mask-composite: intersect;
             }
 
             .product-showcase-mask::before,
