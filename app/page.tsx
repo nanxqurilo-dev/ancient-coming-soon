@@ -85,7 +85,11 @@ const productShowcase = [
   },
 ];
 
-const launchSignals = ["Dhoop Sticks", "Agarbatti", "Dry Dhoop Cones"];
+const launchSignals = [
+  { label: "Dhoop Sticks", icon: <GiIncense /> },
+  { label: "Agarbatti", icon: <GiPrayerBeads /> },
+  { label: "Dry Dhoop Cones", icon: <GiCandleLight /> },
+];
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -293,19 +297,27 @@ className="text-center relative flex flex-col items-center"        >
   initial={{ opacity: 0, y: -12 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
-  className="relative z-10 mb-3 flex flex-col items-center gap-3"
+  className="launch-panel relative z-10 mb-4 flex w-full max-w-3xl flex-col items-center gap-4 px-3 py-4"
 >
-  <div className="launch-badge relative overflow-hidden rounded-full border border-gold/30 bg-black/30 px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.32em] text-gold-light shadow-[0_0_32px_rgba(212,166,90,.18)] backdrop-blur-md">
-    <span className="relative z-10">Coming Soon</span>
+  <div className="launch-orbit absolute left-1/2 top-1/2 hidden h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/20 md:block" />
+  <div className="launch-orbit launch-orbit-slow absolute left-1/2 top-1/2 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-gold/15 md:block" />
+
+  <div className="launch-badge relative overflow-hidden rounded-full border border-gold/35 bg-black/35 px-7 py-3 shadow-[0_0_45px_rgba(212,166,90,.24)] backdrop-blur-md md:px-10 md:py-4">
+    <span className="relative z-10 block text-base font-bold uppercase tracking-[0.42em] text-gold-light drop-shadow-[0_0_18px_rgba(242,197,111,.38)] md:text-2xl">
+      Coming Soon
+    </span>
   </div>
-  <div className="flex max-w-full flex-wrap items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-gray-200">
+  <div className="relative z-10 flex max-w-full flex-wrap items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-gray-200 md:gap-3 md:text-[10px]">
     {launchSignals.map((item) => (
-      <span
-        key={item}
-        className="rounded-full border border-white/10 bg-white/[.06] px-3 py-1.5 backdrop-blur-sm"
+      <motion.span
+        key={item.label}
+        whileHover={{ y: -3, scale: 1.04 }}
+        whileTap={{ scale: 0.98 }}
+        className="flex items-center gap-2 rounded-full border border-white/12 bg-white/[.07] px-3 py-2 backdrop-blur-sm transition-colors hover:border-gold/45 hover:bg-gold/10 hover:text-gold-light md:px-4"
       >
-        {item}
-      </span>
+        <span className="text-sm text-gold-light">{item.icon}</span>
+        {item.label}
+      </motion.span>
     ))}
   </div>
 </motion.div>
@@ -768,7 +780,23 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               transition: background-color 9999s ease-in-out 0s;
             }
 
-            .launch-badge::before {
+            :global(.launch-panel)::before {
+              content: "";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              width: min(92vw, 560px);
+              height: 150px;
+              transform: translate(-50%, -50%);
+              border-radius: 9999px;
+              background:
+                radial-gradient(circle at center, rgba(212, 166, 90, 0.18), transparent 58%),
+                radial-gradient(circle at 35% 45%, rgba(255, 255, 255, 0.08), transparent 42%);
+              filter: blur(18px);
+              animation: launchGlow 5.2s ease-in-out infinite;
+            }
+
+            :global(.launch-badge)::before {
               content: "";
               position: absolute;
               inset: 0;
@@ -782,6 +810,53 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               );
               transform: translateX(-120%);
               animation: badgeShine 4.8s ease-in-out infinite;
+            }
+
+            :global(.launch-badge) {
+              animation: badgePulse 4.6s ease-in-out infinite;
+            }
+
+            :global(.launch-orbit) {
+              animation: launchOrbit 18s linear infinite;
+            }
+
+            :global(.launch-orbit-slow) {
+              animation-duration: 30s;
+              animation-direction: reverse;
+            }
+
+            @keyframes launchGlow {
+              0%,
+              100% {
+                opacity: 0.58;
+                transform: translate(-50%, -50%) scale(0.96);
+              }
+
+              50% {
+                opacity: 0.96;
+                transform: translate(-50%, -50%) scale(1.06);
+              }
+            }
+
+            @keyframes badgePulse {
+              0%,
+              100% {
+                box-shadow: 0 0 32px rgba(212, 166, 90, 0.2);
+              }
+
+              50% {
+                box-shadow: 0 0 58px rgba(212, 166, 90, 0.42);
+              }
+            }
+
+            @keyframes launchOrbit {
+              from {
+                transform: translate(-50%, -50%) rotate(0deg);
+              }
+
+              to {
+                transform: translate(-50%, -50%) rotate(360deg);
+              }
             }
 
             @keyframes badgeShine {
@@ -871,6 +946,10 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
             }
 
             @media (prefers-reduced-motion: reduce) {
+              :global(.launch-panel)::before,
+              :global(.launch-badge),
+              :global(.launch-badge)::before,
+              :global(.launch-orbit),
               :global(.product-marquee),
               :global(.product-tile) {
                 animation: none;
