@@ -86,9 +86,24 @@ const productShowcase = [
 ];
 
 const launchSignals = [
-  { label: "Dhoop Sticks", icon: <GiIncense /> },
-  { label: "Agarbatti", icon: <GiPrayerBeads /> },
-  { label: "Dry Dhoop Cones", icon: <GiCandleLight /> },
+  {
+    label: "Incense Sticks",
+    sub: "Hand rolled sticks",
+    icon: <GiPrayerBeads />,
+    image: "/images/products/category-incense-sticks.jpeg",
+  },
+  {
+    label: "Dhoop Cone",
+    sub: "Temple smoke aroma",
+    icon: <GiCandleLight />,
+    image: "/images/products/category-dhoop-cone.jpg",
+  },
+  {
+    label: "Sambrani Cup",
+    sub: "Traditional cups",
+    icon: <GiFireBowl />,
+    image: "/images/products/category-sambrani-cup.jpg",
+  },
 ];
 
 export default function Home() {
@@ -319,17 +334,38 @@ className="text-center relative flex flex-col items-center"        >
       Coming Soon
     </span>
   </div>
-  <div className="relative z-10 flex max-w-full flex-wrap items-center justify-center gap-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-gray-200 md:gap-3 md:text-[10px]">
+  <div className="relative z-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
     {launchSignals.map((item) => (
-      <motion.span
+      <motion.div
         key={item.label}
-        whileHover={{ y: -3, scale: 1.04 }}
+        whileHover={{ y: -5, scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="flex items-center gap-2 rounded-full border border-white/12 bg-white/[.07] px-3 py-2 backdrop-blur-sm transition-colors hover:border-gold/45 hover:bg-gold/10 hover:text-gold-light md:px-4"
+        className="launch-product-card group relative overflow-hidden rounded-2xl border border-white/12 bg-black/25 p-2 text-left shadow-[0_14px_34px_rgba(0,0,0,.24)] backdrop-blur-sm transition-colors hover:border-gold/45"
       >
-        <span className="text-sm text-gold-light">{item.icon}</span>
-        {item.label}
-      </motion.span>
+        <div className="relative h-24 overflow-hidden rounded-xl sm:h-28">
+          <Image
+            src={item.image}
+            alt={item.label}
+            fill
+            sizes="(max-width: 640px) 100vw, 240px"
+            className="object-fit transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+        </div>
+        <div className="mt-2 flex items-center gap-2 px-1">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/25 bg-gold/10 text-gold-light">
+            {item.icon}
+          </span>
+          <div className="min-w-0">
+            <p className="truncate text-[10px] font-bold uppercase tracking-[0.18em] text-white">
+              {item.label}
+            </p>
+            <p className="mt-0.5 truncate text-[9px] uppercase tracking-[0.14em] text-gold-light/80">
+              {item.sub}
+            </p>
+          </div>
+        </div>
+      </motion.div>
     ))}
   </div>
 </motion.div>
@@ -837,6 +873,32 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               animation-direction: reverse;
             }
 
+            :global(.launch-product-card)::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              z-index: 2;
+              pointer-events: none;
+              background: linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(242, 197, 111, 0.12) 38%,
+                rgba(255, 255, 255, 0.18) 50%,
+                rgba(242, 197, 111, 0.1) 62%,
+                transparent 100%
+              );
+              transform: translateX(-120%);
+              animation: cardShine 6s ease-in-out infinite;
+            }
+
+            :global(.launch-product-card:nth-child(2))::before {
+              animation-delay: -2s;
+            }
+
+            :global(.launch-product-card:nth-child(3))::before {
+              animation-delay: -4s;
+            }
+
             :global(.ancient-side-art) {
               animation: ancientFloat 6.5s ease-in-out infinite;
             }
@@ -904,6 +966,18 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 
               to {
                 transform: rotate(360deg);
+              }
+            }
+
+            @keyframes cardShine {
+              0%,
+              48% {
+                transform: translateX(-120%);
+              }
+
+              78%,
+              100% {
+                transform: translateX(120%);
               }
             }
 
@@ -1115,6 +1189,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
               :global(.launch-badge),
               :global(.launch-badge)::before,
               :global(.launch-orbit),
+              :global(.launch-product-card)::before,
               :global(.ancient-side-art),
               :global(.ancient-ring),
               :global(.side-dhoop-image),
