@@ -226,41 +226,41 @@ export default function Home() {
 
   <div className="container mx-auto px-4 py-3">
 
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+    <div className="flex items-center justify-between gap-3">
 
       <div className="flex items-center gap-5 text-gold-light">
 
-        <FaFacebookF className="cursor-pointer hover:text-white" />
-        <FaInstagram className="cursor-pointer hover:text-white" />
-        <FaYoutube className="cursor-pointer hover:text-white" />
+        <FaFacebookF className="cursor-pointer transition hover:text-white" />
+        <FaInstagram className="cursor-pointer transition hover:text-white" />
+        <FaYoutube className="cursor-pointer transition hover:text-white" />
 
       </div>
 
-      <div className="text-center flex-1">
+      <div className="hidden text-center flex-1 md:block">
 
         <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-gold-light">
           Premium Pooja Essentials • Natural Incense • Devotion in Every Fragrance
         </p>
 
         <p className="mt-1 text-[11px] md:text-sm text-gray-400">
-          Launching India's premium destination for Dhoop, Agarbatti, Sambrani Cups & Sacred Ritual Essentials.
+          Launching India&apos;s premium destination for Dhoop, Agarbatti, Sambrani Cups & Sacred Ritual Essentials.
         </p>
 
       </div>
 
 
-      <div className="flex flex-col md:items-end text-[11px] text-gray-300">
+      <div className="flex flex-col items-end text-[11px] text-gray-300">
 
         <a
           href="tel:+919289910711"
-          className="hover:text-gold transition"
+          className="flex items-center gap-1.5 transition hover:text-gold"
         >
           📞 +91 92899 10711
         </a>
 
         <a
           href="mailto:care@ancientindia.co"
-          className="hover:text-gold transition"
+          className="flex items-center gap-1.5 transition hover:text-gold"
         >
           ✉ care@ancientindia.co
         </a>
@@ -272,6 +272,15 @@ export default function Home() {
   </div>
 
 </header>
+
+<div className="relative z-20 border-b border-gold/10 bg-[radial-gradient(circle_at_center,rgba(212,166,90,.14),rgba(8,4,2,.72)_68%)] px-4 py-3 text-center shadow-[0_14px_34px_rgba(0,0,0,.24)] md:hidden">
+  <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.34em] text-gold-light">
+    Premium Pooja Essentials &bull; Natural Incense &bull; Devotion in Every Fragrance
+  </p>
+  <p className="mx-auto mt-1 max-w-sm text-[11px] leading-relaxed text-gray-300">
+    Launching India&apos;s premium destination for Dhoop, Agarbatti, Sambrani Cups & Sacred Ritual Essentials.
+  </p>
+</div>
 
 
 
@@ -777,7 +786,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
                 essentials made for homes, temples and gifting.
               </p>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {/* <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {launchHighlights.map((item) => (
                   <div
                     key={item}
@@ -787,7 +796,43 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
                     {item}
                   </div>
                 ))}
-              </div>
+              </div> */}
+
+
+
+<div className="mt-6 grid gap-3 sm:grid-cols-3">
+  {launchHighlights.map((item) => (
+    <div
+      key={item}
+      className="
+        flex items-center gap-3
+        rounded-2xl
+        border border-white/10
+        bg-black/15
+        px-5 py-4
+        text-sm
+        text-gray-200
+        backdrop-blur-sm
+      "
+    >
+      <span
+        className="
+          h-2.5 w-2.5
+          shrink-0
+          rounded-full
+          bg-[#F2C56F]
+          shadow-[0_0_12px_rgba(242,197,111,.8)]
+        "
+      />
+
+      <span className="leading-normal">
+        {item}
+      </span>
+    </div>
+  ))}
+</div>
+
+
 
               <button className="mt-7 rounded-full border border-gold/45 bg-black/15 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-light backdrop-blur-[1px] transition-all hover:bg-gold hover:text-black hover:shadow-[0_0_28px_rgba(212,166,90,.32)]">
                 Discover Our Promise &rarr;
