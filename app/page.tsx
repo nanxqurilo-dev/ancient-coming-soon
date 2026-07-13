@@ -885,7 +885,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
       </section>
 
       {/* ================= NEWSLETTER SECTION (PREMIUM GLASS) ================= */}
-      <section className="relative z-10 container mx-auto px-4 pb-24">
+      <section className="relative z-10 container mx-auto px-4 pb-8 md:pb-12">
         <motion.div {...fadeInUp} className="relative bg-gradient-to-br from-black/40 to-black/10 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/40 rounded-2xl p-8 md:p-16 overflow-hidden">
 
           {/* Background decorative glow for newsletter */}
@@ -1669,7 +1669,8 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
     justify-between
     items-center
     px-8
-    py-8
+    py-5
+    md:py-6
     gap-4
 
     bg-black/5
