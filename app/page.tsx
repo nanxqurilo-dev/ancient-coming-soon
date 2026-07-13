@@ -228,13 +228,48 @@ export default function Home() {
 
     <div className="flex items-center justify-between gap-3">
 
-      <div className="flex items-center gap-5 text-gold-light">
+      {/* <div className="flex items-center gap-5 text-gold-light">
 
         <FaFacebookF className="cursor-pointer transition hover:text-white" />
         <FaInstagram className="cursor-pointer transition hover:text-white" />
         <FaYoutube className="cursor-pointer transition hover:text-white" />
 
-      </div>
+      </div> */}
+
+
+
+<div className="flex items-center gap-5 text-gold-light">
+  <a
+    href="https://www.facebook.com/ancientindiabymedieval"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="transition hover:text-white hover:scale-110"
+  >
+    <FaFacebookF className="cursor-pointer" />
+  </a>
+
+  <a
+    href="https://www.instagram.com/ancientindia.co/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="transition hover:text-white hover:scale-110"
+  >
+    <FaInstagram className="cursor-pointer" />
+  </a>
+
+  <a
+    href="https://www.youtube.com/@ancientindiabymedieval"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="YouTube"
+    className="transition hover:text-white hover:scale-110"
+  >
+    <FaYoutube className="cursor-pointer" />
+  </a>
+</div>
+
 
       <div className="hidden text-center flex-1 md:block">
 
