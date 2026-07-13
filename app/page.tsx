@@ -768,6 +768,12 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
 <motion.button
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: .97 }}
+  onClick={() => {
+    document.getElementById("launch-notify")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
   className="
     mt-8
     px-10
@@ -920,7 +926,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
       </section>
 
       {/* ================= NEWSLETTER SECTION (PREMIUM GLASS) ================= */}
-      <section className="relative z-10 container mx-auto px-4 pb-8 md:pb-12">
+      <section id="launch-notify" className="relative z-10 container mx-auto scroll-mt-6 px-4 pb-8 md:scroll-mt-10 md:pb-12">
         <motion.div {...fadeInUp} className="relative bg-gradient-to-br from-black/40 to-black/10 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/40 rounded-2xl p-8 md:p-16 overflow-hidden">
 
           {/* Background decorative glow for newsletter */}
