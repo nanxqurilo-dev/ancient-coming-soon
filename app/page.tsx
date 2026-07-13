@@ -861,7 +861,7 @@ className="relative w-[320px] h-[150px] md:w-[600px] md:h-[220px]"> */}
       </section>
 
       {/* ================= FEATURE HIGHLIGHTS (GLASS CARDS) ================= */}
-      <section className="relative z-10 container mx-auto px-4 py-16 border-t border-white/5">
+      <section className="relative z-10 container mx-auto px-4 py-10 border-t border-white/5">
         <motion.div
           variants={staggerContainer}
           initial="initial"
